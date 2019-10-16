@@ -1,0 +1,27 @@
+C++Builder and Delphi 10.3.2 Building Changed Files Patch
+================================================
+
+This patch addresses the following issues:
+
+* In some situations, modifying a file in the IDE followed by making or compiling the project would not build the modified file into the resulting binary (RSP-25509, RSP-25590)
+
+This issue would result in the built binary (such as your app) running, but not including the changes since the last time it was run. For C++Builder, this could include source code changes, such as modifications in a .cpp file. For Delphi, this would not affect modifications to source (.pas) files, but might affect other files such as resource (.res) files.
+
+Installation instructions
+-------------------------
+
+1. Shut down RAD Studio
+2. Create a backup copy of the following files in your RAD Studio installation folder:
+   1. bin\Borland.Build.Tasks.Shared.dll
+3. Extract the ZIP archive
+4. Unblock the extracted file if necessary (only needed if the file was extracted with Windows Explorer)
+   1. Bring up the properties dialog by right clicking on the file and select Properties
+   2. In the Security section at the bottom, check the Unblock checkbox to unblock the file
+5. Copy the contents of the ZIP archive to the RAD Studio installation folder, so that the contents overwrite the 'Borland.Build.Tasks.Shared.dll' file in the \bin subfolder
+6. Restart RAD Studio
+
+File List
+---------
+
+bin\Borland.Build.Tasks.Shared.dll
+

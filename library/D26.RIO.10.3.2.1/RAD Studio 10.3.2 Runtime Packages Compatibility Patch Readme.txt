@@ -1,0 +1,146 @@
+﻿RAD Studio 10.3.2 Runtime Packages Compatibility Patch 
+
+
+Issue: Applications compiled with RAD Studio 10.3 or 10.3.1 and using runtime packages will not start when executed against the 10.3.2 version of the RTL runtime package.
+
+
+Summary: This patch addresses a compatibility issue with mixing runtime packages built with 10.3.2 with earlier releases of Delphi or C++Builder 10.3. The platforms impacted are Win32, Win64, macOS32, and Linux64.
+
+
+The incompatibility is surfaced with an error like ‘Entry Point not Found "@System@Classes@TFieldsCache@$bcctr$qqrv"’.
+
+
+After applying the patch, older applications will keep running when you deploy a new application with new runtime packages. This means that the updated 10.3.2 packages are backward compatible. 
+
+
+Note: A new application built in 10.3.2 will not run if executed against a 10.3.x version of the runtime packages. 
+
+
+
+
+======
+
+
+Please follow the steps below:
+1. Shut down all versions of RAD Studio
+2. Extract the ZIP archive
+2. Optionally create a backup copy of the original files, for each file contained in this archive
+3. Copy the contents of the ZIP archive to your RAD Studio main installation folder
+4. Restart RAD Studio
+
+
+The file list is below
+
+
+======
+
+
+Runtime packages
+
+
+*.bpl
+
+
+bin\rtl260.bpl
+bin64\rtl260.bpl
+
+
+Redist\win32\rtl260.bpl
+Redist\win64\rtl260.bpl
+
+
+*.dylib
+
+
+binosx32\bplrtl260.dylib
+binosx64\bplrtl260.dylib
+Redist\osx32\bplrtl260.dylib
+Redist\osx64\bplrtl260.dylib
+
+
+*.so
+
+
+binlinux64\bplrtl260.so
+Redist\linux64\bplrtl260.so
+=====================================
+
+
+System.Classes unit
+
+
+lib\android\debug\System.Classes.dcu
+lib\android\debug\System.Classes.o
+lib\android\release\System.Classes.dcu
+lib\android\release\System.Classes.o
+lib\iosDevice32\debug\System.Classes.dcu
+lib\iosDevice32\debug\System.Classes.o
+lib\iosDevice32\release\System.Classes.dcu
+lib\iosDevice32\release\System.Classes.o
+lib\iosDevice64\debug\System.Classes.dcu
+lib\iosDevice64\debug\System.Classes.o
+lib\iosDevice64\release\System.Classes.dcu
+lib\iosDevice64\release\System.Classes.o
+lib\iossimulator\debug\System.Classes.dcu
+lib\iossimulator\release\System.Classes.dcu
+lib\linux64\debug\System.Classes.dcu
+lib\linux64\debug\System.Classes.o
+lib\linux64\release\System.Classes.dcu
+lib\linux64\release\System.Classes.o
+lib\osx32\debug\System.Classes.dcu
+lib\osx32\release\System.Classes.dcu
+lib\osx64\debug\System.Classes.dcu
+lib\osx64\debug\System.Classes.o
+lib\osx64\release\System.Classes.dcu
+lib\osx64\release\System.Classes.o
+lib\win32\debug\System.Classes.dcu
+lib\win32\release\System.Classes.dcu
+lib\win64\debug\System.Classes.dcu
+lib\win64\release\System.Classes.dcu
+
+
+=====================================
+Source code
+
+
+source\rtl\common\System.Classes.pas
+
+
+
+
+=====================================
+
+
+static lib for CBuilder
+
+
+lib\win32\debug\rtl.lib
+lib\win32\debug\de\rtl.lib
+lib\win32\debug\fr\rtl.lib
+lib\win32\debug\ja\rtl.lib
+
+
+lib\win32\release\rtl.lib
+lib\win32\release\de\rtl.lib
+lib\win32\release\fr\rtl.lib
+lib\win32\release\ja\rtl.lib
+
+
+
+
+lib\android\debug\librtl.a
+lib\android\release\librtl.a
+lib\iosDevice32\debug\librtl.a
+lib\iosDevice32\release\librtl.a
+lib\iosDevice64\debug\librtl.a
+lib\iosDevice64\release\librtl.a
+
+
+lib\osx32\debug\rtl.a
+lib\osx32\release\rtl.a
+
+
+lib\win64\release\rtl.a
+lib\win64\release\de\rtl.a
+lib\win64\release\fr\rtl.a
+lib\win64\release\ja\rtl.a

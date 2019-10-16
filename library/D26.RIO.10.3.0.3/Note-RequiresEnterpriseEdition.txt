@@ -1,0 +1,1 @@
+Requires Enterprise (or Architect) edition to use

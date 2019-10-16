@@ -1,0 +1,23 @@
+RAD Studio 10.3.2 C++ and Delphi Toolchain Patch
+================================================
+
+This patch addresses the following issues:
+
+* Debugging local variables in apps built with the Win32 Clang-enhanced compiler showed only '?', not the value (RSP-25527)
+* Fatal error when linking a large Delphi app on macOS 64-bit
+
+
+Installation instructions
+-------------------------
+
+1. Shut down all versions of RAD Studio
+2. Extract the ZIP archive
+3. Create a backup copy of the original files, for each file contained in this archive
+4. Copy the contents of the ZIP archive to the \bin folder inside your RAD Studio main installation folder
+5. Restart RAD Studio
+
+File List
+---------
+
+bin\comp32x.dll
+bin\ld.exe

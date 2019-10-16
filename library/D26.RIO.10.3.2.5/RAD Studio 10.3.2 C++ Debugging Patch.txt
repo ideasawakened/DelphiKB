@@ -1,0 +1,24 @@
+RAD Studio 10.3.2 C++ Debugging Patch
+================================================
+
+This patch addresses the following issues:
+
+* Debugging variables in apps built with the Classic bcc32 compiler could not be evaluated or watched (RSP-25943)
+
+A previous hotfix, 'RAD Studio 10.3.2 C++ and Delphi Toolchain Patch' (August 14 2019), resolved a similar issue for the Win32 Clang-enhanced compiler, (RSP-25527.)
+
+This hotfix resolves both issues such that variable evaluation is correct for both Win32 compilers. If you install both hotfixes, install this hotfix second.
+
+Installation instructions
+-------------------------
+
+1. Shut down all versions of RAD Studio
+2. Extract the ZIP archive
+3. Create a backup copy of the original 'comp32x.dll' file from the \bin folder inside your RAD Studio main installation folder
+4. Copy the contents of the ZIP archive to the \bin folder inside your RAD Studio main installation folder
+5. Restart RAD Studio
+
+File List
+---------
+
+bin\comp32x.dll
