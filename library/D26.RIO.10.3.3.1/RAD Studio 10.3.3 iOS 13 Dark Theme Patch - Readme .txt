@@ -1,0 +1,20 @@
+﻿RAD Studio 10.3.3 iOS 13 Dark Theme Patch
+
+
+Issue: Applications built for iOS 13 with RAD Studio 10.3.3 require the user to restart their FireMonkey iOS application on their iOS device after switching between the iOS light and dark theme in iOS settings. 
+
+
+After applying the patch, switching between the iOS light and dark theme in iOS settings automatically updates the application theme in the FireMonkey iOS application that’s running on the end user’s device, without requiring an application restart. 
+
+
+======
+
+
+Please follow the steps below:
+1. Open Delphi, C++Builder or RAD Studio 10.3.3
+2. Create a new FireMonkey project or open your existing FireMonkey project
+3. Add FMX.Platform.iOS to your project via the Project Manager 
+4. Build your project and run
+
+
+Note: Targeting iOS 13 with dark theme support requires that you use the iOS 13 SDK.
