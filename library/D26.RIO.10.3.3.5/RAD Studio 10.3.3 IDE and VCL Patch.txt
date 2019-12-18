@@ -1,0 +1,23 @@
+RAD Studio 10.3.3 IDE and VCL Patch
+================================================
+
+This patch addresses the following issues:
+
+* RSP-26731 Code completion popup leaves scroll bar window floating
+* RSP-27035 Using TActionManager or TPopupActionBar gives error, "F2613 Unit 'IDETheme.ActnCtrls' not found" when compiling
+
+Installation instructions
+-------------------------
+
+1. Shut down RAD Studio
+2. Create a backup copy of the following files in your RAD Studio installation folder:
+   1. bin\themeloader260.bpl
+3. Extract the ZIP archive
+4. Copy the 'themeloader260.bpl' file to the 'bin' folder in your RAD Studio installation folder
+5. Restart RAD Studio
+
+File List
+---------
+
+* themeloader260.bpl
+

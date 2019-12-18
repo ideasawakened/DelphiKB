@@ -1,0 +1,23 @@
+RAD Studio 10.3.3 iOS Linking Patch
+================================================
+
+This patch addresses the following issue:
+
+* RSP-23698: dsymlink gives abnormal program termination
+  When linking the debug build of an iOS app, dsymlink would fail with an assertion and abnormal program termination. Depending on your settings, you may also see many warnings emitted before the assertion and crash.
+
+Installation instructions
+-------------------------
+
+1. Shut down RAD Studio
+2. Create a backup copy of the following files in your RAD Studio installation folder:
+   1. bin\dsymlink.exe
+3. Extract the ZIP archive
+4. Copy the 'dsymlink.exe' file to the 'bin' folder in your RAD Studio installation folder
+5. Restart RAD Studio
+
+File List
+---------
+
+* dsymlink.exe
+

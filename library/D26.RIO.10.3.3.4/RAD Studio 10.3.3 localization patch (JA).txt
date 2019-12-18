@@ -1,0 +1,12 @@
+RAD Studio 10.3.3 localization patch (JA)
+================================================
+
+This patch addresses some localization issues in 10.3.3
+
+Installation instructions
+-------------------------
+
+1. Shut down RAD Studio
+2. Extract the ZIP archive to a temporary folder
+3. Copy the files to the BDS folder
+4. Restart RAD Studio

@@ -1,0 +1,35 @@
+RAD Studio 10.3.3 Android Debugger Patch
+================================================
+
+This patch addresses the following issues:
+
+* RSP-26704 Debugging 64 bit Android application hangs the IDE
+* RSP-26824 Breakpoints do not work in Android 64 project
+* RSP-26774 Unable to start GDB kernel after switching from debugging 32 to 64 Android
+* plus a number of internally reported issues including: issues evaluating, connecting to an Android device, slowdown of a debugged app when the debugger is attached, handling very large source files, switching threads from the Threads view, displaying memory in the CPU view, and others.
+
+Installation instructions
+-------------------------
+
+1. Shut down RAD Studio
+2. Create a backup copy of the following files in your RAD Studio installation folder:
+   1. bin\Android\lldb\lldb-mi.exe
+   2. bin\Android\lldb\liblldb.dll
+   3. bin\Android\lldb\libclang.dll
+   4. bin\Android\lldb\lldb.exe
+   5. bin\gdbdebugcore260.bpl
+   6. bin\gdbdebugcore260.jdbg 
+3. Extract the ZIP archive
+4. Copy the file to the 'bin' folder in your RAD Studio installation folder, such that they overwrite the files listed above
+5. Restart RAD Studio
+
+File List
+---------
+
+* bin\Android\lldb\lldb-mi.exe
+* bin\Android\lldb\liblldb.dll
+* bin\Android\lldb\libclang.dll
+* bin\Android\lldb\lldb.exe
+* bin\gdbdebugcore260.bpl
+* bin\gdbdebugcore260.jdbg 
+
