@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Demonstrate adding a custom combo box via IFileDialogCustomize'
-  ClientHeight = 411
-  ClientWidth = 852
+  ClientHeight = 190
+  ClientWidth = 540
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,25 +11,26 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 48
-    Top = 88
-    Width = 96
+    Left = 188
+    Top = 26
+    Width = 170
     Height = 13
-    Caption = 'Combo Box choices:'
+    Caption = 'TComboBox choices listed in Dialog:'
   end
   object Label2: TLabel
-    Left = 48
-    Top = 210
-    Width = 249
+    Left = 184
+    Top = 154
+    Width = 168
     Height = 13
-    Caption = 'Select one to have it auto-selected in the File Dialog'
+    Caption = 'Select one to have it auto-selected'
   end
   object butOpenFile: TButton
-    Left = 40
-    Top = 32
+    Left = 56
+    Top = 20
     Width = 89
     Height = 25
     Caption = 'Test OpenFile'
@@ -37,8 +38,8 @@ object Form1: TForm1
     OnClick = butOpenFileClick
   end
   object lstCustomItems: TListBox
-    Left = 48
-    Top = 107
+    Left = 184
+    Top = 47
     Width = 113
     Height = 97
     ItemHeight = 13
@@ -48,7 +49,7 @@ object Form1: TForm1
       'Demo 3')
     TabOrder = 1
   end
-  object FileOpenDialog1: TFileOpenDialog
+  object ExampleDialog: TFileOpenDialog
     FavoriteLinks = <>
     FileTypes = <
       item
@@ -56,9 +57,9 @@ object Form1: TForm1
         FileMask = '*.*'
       end>
     Options = []
-    OnExecute = FileOpenDialog1Execute
-    OnFileOkClick = FileOpenDialog1FileOkClick
-    Left = 184
-    Top = 24
+    OnExecute = ExampleDialogExecute
+    OnFileOkClick = ExampleDialogFileOkClick
+    Left = 84
+    Top = 60
   end
 end
