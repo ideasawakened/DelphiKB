@@ -166,9 +166,30 @@ begin
   end;
 end;
 
+//error trapping System.MonitorSupport.NewWaitObject added by Kiriakos Vlahos
+//this reveals the underlying failure of this stress test:
+//GetLastError of 87 when creating a new event. (ERROR_INVALID_PARAMETER)
+//Very likely due to # of array items being passed to WaitForMultipleXXX being greater than MAXIMUM_WAIT_OBJECTS (64)
+var
+  OldNewWaitObj : function: Pointer;
+
+function NewWaitObject: Pointer; inline;
+begin
+  try
+    Result := OldNewWaitObj();
+    CheckOSError(GetLastError);
+  except on E: Exception do
+    begin
+      Logit(E.Message);
+    end;
+  end;
+end;
+
 
 initialization
   pubTestCompletionCheck := TEvent.Create();
+  OldNewWaitObj := System.MonitorSupport.NewWaitObject;
+  System.MonitorSupport.NewWaitObject := NewWaitObject;
 
 finalization
   pubTestCompletionCheck.Free();
