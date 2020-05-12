@@ -176,6 +176,7 @@ var
 function NewWaitObject: Pointer; inline;
 begin
   try
+    SetLastError(0); //not all API calls reset LastError
     Result := OldNewWaitObj();
     CheckOSError(GetLastError);
   except on E: Exception do
