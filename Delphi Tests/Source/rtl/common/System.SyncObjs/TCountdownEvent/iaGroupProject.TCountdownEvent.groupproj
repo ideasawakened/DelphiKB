@@ -3,10 +3,13 @@
         <ProjectGuid>{6F256AE2-41EA-40D8-B4EE-80D3A40F8920}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
+        <Projects Include="UnitTest\iaUnitTest.TCountdownEvent.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="Demo.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="UnitTest\iaUnitTest.TCountdownEvent.dproj">
+        <Projects Include="Demo.VCLForkJoin\iaDemo.VCLForkJoin.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -17,15 +20,6 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="iaDemo_TCountdownEvent_WaitThread">
-        <MSBuild Projects="Demo.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj"/>
-    </Target>
-    <Target Name="iaDemo_TCountdownEvent_WaitThread:Clean">
-        <MSBuild Projects="Demo.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="iaDemo_TCountdownEvent_WaitThread:Make">
-        <MSBuild Projects="Demo.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj" Targets="Make"/>
-    </Target>
     <Target Name="iaUnitTest_TCountdownEvent">
         <MSBuild Projects="UnitTest\iaUnitTest.TCountdownEvent.dproj"/>
     </Target>
@@ -35,14 +29,32 @@
     <Target Name="iaUnitTest_TCountdownEvent:Make">
         <MSBuild Projects="UnitTest\iaUnitTest.TCountdownEvent.dproj" Targets="Make"/>
     </Target>
+    <Target Name="iaDemo_TCountdownEvent_WaitThread">
+        <MSBuild Projects="Demo.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj"/>
+    </Target>
+    <Target Name="iaDemo_TCountdownEvent_WaitThread:Clean">
+        <MSBuild Projects="Demo.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="iaDemo_TCountdownEvent_WaitThread:Make">
+        <MSBuild Projects="Demo.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="iaDemo_VCLForkJoin">
+        <MSBuild Projects="Demo.VCLForkJoin\iaDemo.VCLForkJoin.dproj"/>
+    </Target>
+    <Target Name="iaDemo_VCLForkJoin:Clean">
+        <MSBuild Projects="Demo.VCLForkJoin\iaDemo.VCLForkJoin.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="iaDemo_VCLForkJoin:Make">
+        <MSBuild Projects="Demo.VCLForkJoin\iaDemo.VCLForkJoin.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="iaDemo_TCountdownEvent_WaitThread;iaUnitTest_TCountdownEvent"/>
+        <CallTarget Targets="iaUnitTest_TCountdownEvent;iaDemo_TCountdownEvent_WaitThread;iaDemo_VCLForkJoin"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="iaDemo_TCountdownEvent_WaitThread:Clean;iaUnitTest_TCountdownEvent:Clean"/>
+        <CallTarget Targets="iaUnitTest_TCountdownEvent:Clean;iaDemo_TCountdownEvent_WaitThread:Clean;iaDemo_VCLForkJoin:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="iaDemo_TCountdownEvent_WaitThread:Make;iaUnitTest_TCountdownEvent:Make"/>
+        <CallTarget Targets="iaUnitTest_TCountdownEvent:Make;iaDemo_TCountdownEvent_WaitThread:Make;iaDemo_VCLForkJoin:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

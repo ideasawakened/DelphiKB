@@ -25,11 +25,9 @@ uses
 
 
 constructor TExampleWaitingThread.Create(const pCDE:TCountdownEvent);
-const
-  CreateSuspendedParam = False;
 begin
   fCDE := pCDE;
-  inherited Create(CreateSuspendedParam);
+  inherited Create(False);
 end;
 
 
@@ -40,11 +38,11 @@ begin
     fCDE.WaitFor(); //could provide timeout here, otherwise INFINITE
 
     //resources exhausted: either refill or cleanup and exit.
-    //We'll simply exit
+    //We'll simply exit for the demo
     Synchronize(AllDone);
   except on E:Exception do
     begin
-      LogIt('Background thread exception trapped: ' + E.Message);
+      LogIt('CDE demo: waiting thread exception trapped: ' + E.Message);
     end;
   end;
 end;
