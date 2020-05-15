@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{1576D46E-92B3-49D5-9C3C-C89FD72B1D28}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Example.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="UnitTest\iaUnitTest.TCountdownEvent.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="iaDemo_TCountdownEvent_WaitThread">
+        <MSBuild Projects="Example.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj"/>
+    </Target>
+    <Target Name="iaDemo_TCountdownEvent_WaitThread:Clean">
+        <MSBuild Projects="Example.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="iaDemo_TCountdownEvent_WaitThread:Make">
+        <MSBuild Projects="Example.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="iaUnitTest_TCountdownEvent">
+        <MSBuild Projects="UnitTest\iaUnitTest.TCountdownEvent.dproj"/>
+    </Target>
+    <Target Name="iaUnitTest_TCountdownEvent:Clean">
+        <MSBuild Projects="UnitTest\iaUnitTest.TCountdownEvent.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="iaUnitTest_TCountdownEvent:Make">
+        <MSBuild Projects="UnitTest\iaUnitTest.TCountdownEvent.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="iaDemo_TCountdownEvent_WaitThread;iaUnitTest_TCountdownEvent"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="iaDemo_TCountdownEvent_WaitThread:Clean;iaUnitTest_TCountdownEvent:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="iaDemo_TCountdownEvent_WaitThread:Make;iaUnitTest_TCountdownEvent:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
