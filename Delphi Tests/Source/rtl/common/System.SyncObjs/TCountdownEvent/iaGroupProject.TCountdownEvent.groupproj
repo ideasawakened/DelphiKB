@@ -1,9 +1,9 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{1576D46E-92B3-49D5-9C3C-C89FD72B1D28}</ProjectGuid>
+        <ProjectGuid>{6F256AE2-41EA-40D8-B4EE-80D3A40F8920}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="Example.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj">
+        <Projects Include="Demo.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="UnitTest\iaUnitTest.TCountdownEvent.dproj">
@@ -18,13 +18,13 @@
         </BorlandProject>
     </ProjectExtensions>
     <Target Name="iaDemo_TCountdownEvent_WaitThread">
-        <MSBuild Projects="Example.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj"/>
+        <MSBuild Projects="Demo.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj"/>
     </Target>
     <Target Name="iaDemo_TCountdownEvent_WaitThread:Clean">
-        <MSBuild Projects="Example.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj" Targets="Clean"/>
+        <MSBuild Projects="Demo.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj" Targets="Clean"/>
     </Target>
     <Target Name="iaDemo_TCountdownEvent_WaitThread:Make">
-        <MSBuild Projects="Example.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj" Targets="Make"/>
+        <MSBuild Projects="Demo.WaitThread\iaDemo.TCountdownEvent.WaitThread.dproj" Targets="Make"/>
     </Target>
     <Target Name="iaUnitTest_TCountdownEvent">
         <MSBuild Projects="UnitTest\iaUnitTest.TCountdownEvent.dproj"/>
