@@ -1,19 +1,21 @@
-# TThreadedQueue Issues 
-
-## Related links:
+# TThreadedQueue 
+## Related links
 
 * 2020-05-14 DelphiPraxis message [Revisiting TThreadedQueue and TMonitor](https://en.delphipraxis.net/topic/2824-revisiting-tthreadedqueue-and-tmonitor)
 * 2020-05-08 IdeasAwakened blog post [Revisiting TThreadedQueue and TMonitor](https://www.ideasawakened.com/post/revisting-tthreadedqueue-and-tmonitor-in-delphi)
 * 2019-08-19 Quality Portal open issue [32 bit Integer counters in TThreadedQueue](https://quality.embarcadero.com/browse/RSP-25941)
 * 2019-01-17 Quality Portal open issue [TThreadedQueue unusable with large threads amount - memory corruption](https://quality.embarcadero.com/browse/RSP-23333)
 * 2018-10-11 Quality Portal open issue [TThreadedQueue times-out incorrectly during PushItem and PopItem](https://quality.embarcadero.com/browse/RSP-21405)
+* 2018-08-06 Loggerpro GitHub issue [Race condition with TThreadedQueue usage ](https://github.com/danieleteti/loggerpro/issues/23)
 * 2018-02-23 Quality Portal open issue [TThreadedQueue: should wait INFINITE but doesn't do it](https://quality.embarcadero.com/browse/RSP-19993)
 * 2018-02-03 Quality Portal closed issue [TThreadedQueue: bug when the grow method is called](https://quality.embarcadero.com/browse/RSP-19874)
 * 2017-06-30 Quality Portal open issue [TThreadedQueue.Grow corrupts gueue contents](https://quality.embarcadero.com/browse/RSP-18521)
+* 2015-12-04 Chau Chee Yang blog post [Delphi - Multi threading](http://chee-yang.blogspot.com/2015/12/delphi-multi-threading_4.html)
 * 2012-02-29 Stack overflow question [TThreadedQueue not capable of multiple consumers?](https://stackoverflow.com/questions/4856306/tthreadedqueue-not-capable-of-multiple-consumers)
 * 2012-01-30 Chris Rolliston blog post [Fixing TThreadedQueue…? (Or in other words: TMonitor… again!)](https://delphihaven.wordpress.com/2012/01/30/fixing-tthreadedqueue-or-in-other-words-tmonitor-again/)
 * 2011-05-30 Chris Rolliston blog post [The tyranny of simple tests](https://delphihaven.wordpress.com/2011/05/30/the-tyranny-of-simple-tests/)
 * 2011-05-25 Chris Rolliston blog post [TMonitor redux](https://delphihaven.wordpress.com/2011/05/25/tmonitor-redux/)
+* 2011-05-24 Primož Gabrijelčič (gabr) blog post [TMonitor bug?](https://www.thedelphigeek.com/2011/05/tmonitor-bug.html)
 * 2011-05-06 Chris Rolliston blog post [Writing a simple threaded queue class using TMonitor (2)](https://delphihaven.wordpress.com/2011/05/06/using-tmonitor-2/)
 * 2011-05-04 Chris Rolliston blog post [Writing a simple threaded queue class using TMonitor (1)](https://delphihaven.wordpress.com/2011/05/04/using-tmonitor-1/)
 * 2010-09-01 Mason Wheeler blog post [First look at Delphi XE](http://tech.turbu-rpg.com/181/first-look-at-delphi-xe)
