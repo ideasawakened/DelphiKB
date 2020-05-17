@@ -44,6 +44,7 @@ type
 
 var
   pubTestCompletionCheck:TEvent;
+  pubSyncrhonizedStart:TEvent;
 
 
 implementation
@@ -89,6 +90,7 @@ end;
 procedure TThreadCreator.Execute();
 var
   vThreadsCreated:Integer;
+  vWorkerThreads:Array[0..MAX_WORKER_THREADS-1] of TTestThread;
 begin
   Sleep(1000);//More than enough time to ensure the main thread completely settles-in on WaitFor()
   LogIt('TThreadCreator Start: Creating up to [' + IntToStr(MAX_WORKER_THREADS) + '] threads');
@@ -106,7 +108,7 @@ begin
     end;
 
     try
-      TTestThread.Create(False {$IFDEF MSWINDOWS}, RESERVED_STACK_SIZE{$ENDIF});
+      vWorkerThreads[vThreadsCreated] := TTestThread.Create(True{$IFDEF MSWINDOWS}, RESERVED_STACK_SIZE{$ENDIF});
       Inc(vThreadsCreated);
     except on E: Exception do
       begin
@@ -115,7 +117,17 @@ begin
       end;
     end;
   end;
-  LogIt('TThreadCreator End: [' + IntToStr(vThreadsCreated) + '] worker threads created');
+
+  LogIt('Starting [' + IntToStr(vThreadsCreated) + '] worker threads');
+  for var i := 0 to vThreadsCreated-1 do
+  begin
+    vWorkerThreads[i].Start();
+  end;
+
+  LogIt('All worker threads started, now signaling synchronized start event to activate them all');
+  pubSyncrhonizedStart.SetEvent();
+
+  LogIt('TThreadCreator End: [' + IntToStr(vThreadsCreated) + '] worker threads started');
 end;
 
 
@@ -166,33 +178,12 @@ begin
   end;
 end;
 
-//error trapping System.MonitorSupport.NewWaitObject added by Kiriakos Vlahos
-//this reveals the underlying failure of this stress test:
-//GetLastError of 87 when creating a new event. (ERROR_INVALID_PARAMETER)
-//Very likely due to # of array items being passed to WaitForMultipleXXX being greater than MAXIMUM_WAIT_OBJECTS (64)
-var
-  OldNewWaitObj : function: Pointer;
-
-function NewWaitObject: Pointer; inline;
-begin
-  try
-    SetLastError(0); //not all API calls reset LastError
-    Result := OldNewWaitObj();
-    CheckOSError(GetLastError);
-  except on E: Exception do
-    begin
-      Logit(E.Message);
-    end;
-  end;
-end;
-
-
 initialization
   pubTestCompletionCheck := TEvent.Create();
-  OldNewWaitObj := System.MonitorSupport.NewWaitObject;
-  System.MonitorSupport.NewWaitObject := NewWaitObject;
+  pubSyncrhonizedStart := TEvent.Create();
 
 finalization
+  pubSyncrhonizedStart.Free();
   pubTestCompletionCheck.Free();
 
 end.
