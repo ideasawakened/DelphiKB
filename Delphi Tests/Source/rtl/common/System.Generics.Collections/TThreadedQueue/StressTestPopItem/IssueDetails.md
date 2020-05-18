@@ -1,6 +1,7 @@
 # TThreadedQueue 
 ## Related links
 
+* 2020-05-16 Quality Portal open issue [InterlockedCompareExchange128 doesn't restore RBX](https://quality.embarcadero.com/browse/RSP-28272)
 * 2020-05-14 DelphiPraxis message [Revisiting TThreadedQueue and TMonitor](https://en.delphipraxis.net/topic/2824-revisiting-tthreadedqueue-and-tmonitor)
 * 2020-05-08 IdeasAwakened blog post [Revisiting TThreadedQueue and TMonitor](https://www.ideasawakened.com/post/revisting-tthreadedqueue-and-tmonitor-in-delphi)
 * 2019-08-19 Quality Portal open issue [32 bit Integer counters in TThreadedQueue](https://quality.embarcadero.com/browse/RSP-25941)
