@@ -8,7 +8,7 @@ uses
 
 
 const
-  POP_TIMEOUT = 10; //the lower the timeout, the more pronounced the problem
+  POP_TIMEOUT = 1; //the lower the timeout, the more pronounced the problem
   MAX_TEST_RUNTIME_SECONDS = 600;
   ACCEPTABLE_TIMEOUTVARIANCE_MS = 60;
   {$IFDEF MSWINDOWS}
