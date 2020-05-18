@@ -154,6 +154,8 @@ var
   vWaitResult:TWaitResult;
   vStopwatch:TStopwatch;
 begin
+  pubSyncrhonizedStart.WaitFor();
+
   while not Terminated do
   begin
     vStopwatch := TStopwatch.StartNew;
