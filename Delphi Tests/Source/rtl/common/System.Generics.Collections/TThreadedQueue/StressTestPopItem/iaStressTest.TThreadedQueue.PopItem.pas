@@ -8,9 +8,8 @@ uses
 
 
 const
-  POP_TIMEOUT = 1; //the lower the timeout, the more pronounced the problem
+  POP_TIMEOUT = 20; //the lower the timeout, the more pronounced the problem
   MAX_TEST_RUNTIME_SECONDS = 600;
-  ACCEPTABLE_TIMEOUTVARIANCE_MS = 60;
   {$IFDEF MSWINDOWS}
     RESERVED_STACK_SIZE = 65536;
     {$IFDEF WIN32}
@@ -19,6 +18,7 @@ const
     MAX_WORKER_THREADS = 30000;
     {$ENDIF}
   {$ENDIF}
+  MINIMIM_TIMEOUT_REQUIRED = 20;
 
 
 type
@@ -65,6 +65,11 @@ var
 begin
   vMaxTestRuntime.Create(0, 0, MAX_TEST_RUNTIME_SECONDS);
   LogIt('StressTestPopItem Start: Waiting up to [' + IntToStr(MAX_TEST_RUNTIME_SECONDS) + '] seconds for PopItem to prematurely timeout.');
+  if POP_TIMEOUT < MINIMIM_TIMEOUT_REQUIRED then
+  begin
+    LogIt('Test aborted, POP_TIMEOUT too short');
+    Exit(False);
+  end;
   LogIt('Note: Using [' + IntToStr(POP_TIMEOUT) + '] as PopTimeout on TThreadedQueue creation');
   vStartedTest := Now;
 
@@ -165,8 +170,7 @@ begin
     if fQueue.ShutDown then Break;
     if pubTestCompletionCheck.WaitFor(0) = wrSignaled then Break;
 
-    //Note: Reason for ACCEPTABLE_VARIANCE_MS is that on some low timeout values (like 200ms) it occasionally times out a little early (like 180ms)
-    if (vWaitResult = wrTimeout) and (vStopWatch.ElapsedMilliseconds > 0) and (vStopWatch.ElapsedMilliseconds >= POP_TIMEOUT-ACCEPTABLE_TIMEOUTVARIANCE_MS) then
+    if (vWaitResult = wrTimeout) and (vStopWatch.ElapsedMilliseconds > 0) then
     begin
       //successful PopItem operation as we aren't adding anything into our queue
       Continue;
