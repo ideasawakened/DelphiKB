@@ -84,6 +84,7 @@
         </DelphiCompile>
         <DCCReference Include="iaStressTest.TThreadedQueue.PopItem.pas"/>
         <DCCReference Include="..\..\..\..\..\iaTestSupport.Log.pas"/>
+        <DCCReference Include="MonitorWaitStackFix.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
