@@ -47,7 +47,7 @@ type
   TEventItemHolder = record
     Next: PEventItemHolder;
     Event: Pointer;
-  end;
+  end align {$IFDEF CPUX64}16{$ELSE CPUX64}8{$ENDIF CPUX64};
 
   TEventStack = record
     Head: PEventItemHolder;
@@ -60,50 +60,64 @@ type
 // taken from OmniThreadLibrary and adapted.
 // either 8-byte or 16-byte CAS, depending on the platform;
 // destination must be propely aligned (8- or 16-byte)
-function CAS(const oldData: pointer; oldReference: NativeInt; newData: pointer;
-  newReference: NativeInt; var destination): boolean;
-asm
-{$IFNDEF CPUX64}
-  push  edi
-  push  ebx
-  mov   ebx, newData
-  mov   ecx, newReference
-  mov   edi, destination
-  lock cmpxchg8b qword ptr [edi]
-  pop   ebx
-  pop   edi
-{$ELSE CPUX64}
-  .pushnv rbx
-  mov   rax, oldData
-  mov   rbx, newData
-  mov   rcx, newReference
-  mov   r8, [destination]
-  lock cmpxchg16b [r8]
-{$ENDIF CPUX64}
-  setz  al
-end; { CAS }
-
-// Delphi's InterlockedCompareExchange128 and the one below need fixing
-//function InterlockedCompareExchange128(Destination: Pointer; ExchangeHigh, ExchangeLow: Int64; ComparandResult: Pointer): Bool; stdcall;
+//function CAS(const oldData: pointer; oldReference: NativeInt; newData: pointer;
+//  newReference: NativeInt; var destination): boolean;
 //asm
-//      .PUSHNV RBX
-//      MOV   R10,RCX
-//      MOV   RBX,R8
-//      MOV   RCX,RDX
-//      MOV   RDX,[R9+8]
-//      MOV   RAX,[R9]
-// LOCK CMPXCHG16B [R10]
-//      SETZ  AL
-//end;
+//{$IFNDEF CPUX64}
+//  push  edi
+//  push  ebx
+//  mov   ebx, newData
+//  mov   ecx, newReference
+//  mov   edi, destination
+//  lock cmpxchg8b qword ptr [edi]
+//  pop   ebx
+//  pop   edi
+//{$ELSE CPUX64}
+//  .pushnv rbx
+//  mov   rax, oldData
+//  mov   rbx, newData
+//  mov   rcx, newReference
+//  mov   r8, [destination]
+//  lock cmpxchg16b [r8]
+//{$ENDIF CPUX64}
+//  setz  al
+//end; { CAS }
+
+// Delphi's InterlockedCompareExchange128 is broken
+{$IFDEF Win64}
+function InterlockedCompareExchange128(Destination: Pointer; ExchangeHigh, ExchangeLow: Int64; ComparandResult: Pointer): boolean;
+// The parameters are in the RCX, RDX, R8 and R9 registers per the MS x64 calling convention:
+//   RCX        Destination
+//   RDX        ExchangeHigh
+//   R8         ExchangeLow
+//   R9         ComparandResult
+//
+// CMPXCHG16B requires the following register setup:
+//   RDX:RAX    ComparandResult.High:ComparandResult.Low
+//   RCX:RBX    ExchangeHigh:ExchangeLow
+// See: https://www.felixcloutier.com/x86/cmpxchg8b:cmpxchg16b
+asm
+      .PUSHNV RBX
+      MOV   R10,Destination             // RCX
+      MOV   RBX,ExchangeLow             // R8
+      MOV   RCX,ExchangeHigh            // RDX
+      MOV   RDX,[ComparandResult+8]     // R9
+      MOV   RAX,[ComparandResult]       // R9
+ LOCK CMPXCHG16B [R10]
+      MOV   [ComparandResult+8],RDX     // R9
+      MOV   [ComparandResult],RAX       // R9
+      SETZ  AL
+ end;
+{$ENDIF Win64}
 
 function InterlockedCompareExchange(var Dest: TEventStack; const NewValue, CurrentValue: TEventStack): Boolean;
 begin
-  Result := CAS(CurrentValue.Head, CurrentValue.Counter, NewValue.Head, NewValue.Counter, Dest);
-//  {$IFDEF CPUX64}
-//  //Result := InterlockedCompareExchange128(@Dest, NewValue.Counter, Int64(NewValue.Head), @CurrentValue);
-//  {$ELSE CPUX64}
-//  Result := CAS(CurrentValue.Head, CurrentValue.Counter, NewValue.Head, NewValue.Counter, Dest);
-//  {$ENDIF CPUX64}
+  //Result := CAS(CurrentValue.Head, CurrentValue.Counter, NewValue.Head, NewValue.Counter, Dest);
+  {$IFDEF CPUX64}
+  Result := InterlockedCompareExchange128(@Dest, NewValue.Counter, Int64(NewValue.Head), @CurrentValue);
+  {$ELSE CPUX64}
+  Result := InterlockedCompareExchange64(Int64(Dest), Int64(NewValue), Int64(CurrentValue)) = Int64(CurrentValue);
+  {$ENDIF CPUX64}
 end;
 
 procedure TEventStack.Push(EventItem: PEventItemHolder);
@@ -203,12 +217,30 @@ begin
   end;
 end;
 
+function WaitOrSignalObj(SignalObject, WaitObject: Pointer; Timeout: Cardinal): Cardinal;
+begin
+  if (SignalObject <> nil) and (WaitObject = nil) then
+  begin
+    Result := 0;
+    SetEvent(THandle(SignalObject));
+  end else if (WaitObject <> nil) and (SignalObject = nil) then begin
+    Result := WaitForSingleObject(THandle(WaitObject), Timeout);
+    {$IFDEF DEBUG_OUTPUT}
+    if (Result <> WAIT_TIMEOUT) and (Result <> WAIT_OBJECT_0) then
+      DebugWrite('WaitOrSignalObj returned: ' + Result.ToString );
+    {$ENDIF DEBUG_OUTPUT}
+  end
+  else
+    Result := 1;
+end;
+
 initialization
   {$IFDEF DEBUG_CONSOLEWRITE}
   ConsoleWriteLock := TSpinLock.Create(True);
   {$ENDIF DEBUG_CONSOLEWRITE}
   System.MonitorSupport.NewWaitObject := NewWaitObj;
   System.MonitorSupport.FreeWaitObject := FreeWaitObj;
+  System.MonitorSupport.WaitOrSignalObject := WaitOrSignalObj;
 finalization
   CleanStack(AtomicExchange(Pointer(EventCache.Head), nil));
   CleanStack(AtomicExchange(Pointer(EventItemHolders.Head), nil));
