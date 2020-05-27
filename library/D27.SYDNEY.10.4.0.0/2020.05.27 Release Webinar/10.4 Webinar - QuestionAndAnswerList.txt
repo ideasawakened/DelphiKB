@@ -1,0 +1,1137 @@
+250+ Q&As addressed by Sarina DuPont, Marco Cantu, Jim McKeeth and David Millington.
+
+Q: How much VCL is slower than QT?
+
+A: I've not used QT in a long time, but VCL provides a much more faithful native Windows experience while QT is more of it's own control type. FireMonkey is our cross platform framework, and it is also more focused on platform native experiences on each platform. Both have great performance and hardware acceleration.
+
+Q: Hi Guys. Looking forward to this
+
+A: Hi, Jens
+
+Q: Can I upgrade from 10.2 to 10.4 directly? Do I need to install 10.3 first?
+
+A: You can skip any version, in most cases there is no issue
+
+Q: is TLS 1.3 natively supported on 10.4?
+
+A: For HTTP client library
+
+Q: No questions so far. Just want to say keep up the good work.
+
+A: Thanks
+
+Q: I think it's good that the Delphi helmet has come back. i never understood where it went to....
+
+A: Great icon, yes, we like it as well
+
+Q: Would it be work at the same PC the version 10.3 and 10.4?
+
+A: You can have both 10.3 and 10.4 on the same computer. But you shuold install them in sequence (10.3 first)
+
+Q: Will the 10.4 replace my 10.3? Or will it be a separate installation?
+
+A: Separate installation, which can coexist
+
+Q: Is 10.4 breaking? By that I mean does it require new versions of 3rd party software such as LMD Tools?
+
+A: Yes, it is a DCU/BPL breaking version as any major version
+
+Q: When we can expect Community edition of 10.4 available?
+
+A: Hi, 10.3.3 versions of Delphi and C++ Builder Community Edition remain available for download. 10.3.3 was an excellent release and Community Edition users can perfectly well continue to work with that release. The majority of customers who need the best performance, quality and features should be able to purchase the latest release. Our paying customers deserve a premium experience. That, coupled with increased non-compliant usage of Community Edition (which we're actovely addressing with our legal team), has resulted in delaying a new release of CE. Over the coming months, we'll determine when a 10.4 version of CE will be released.
+
+Q: Why I lost all settings after install 10.4 (previous: 10.3)? Win 7 Pro
+
+A: You can use the Migration Tool to port any of your configuration settings
+
+Q: When will Konopka VCL Controls be on GetIt for 10.4 ?
+
+A: They'll become avaialble soon
+
+Q: Why are Konopka Signature VCL Controls not in GetIT?
+
+A: They are coming soon
+
+Q: Is 10.4 supports MySQL driver with FireDAC for mobile development?
+
+A: No, FireDAC does not support network connection (with no driver) to MySQL
+
+Q: Why You did not manage approx same getit packages available for 10.4 like for 10.3 before "big start"? (difference it 2 times)
+
+A: Many of the packages are provided by third parties, which had been invited to the beta. Ours are getting there shortly -- many are already
+
+Q: Hi all from Germany!
+
+A: Hello
+
+Q: What is the current level of support for monetising via in app adverts (FireMonkey, iOS and Android)
+
+A: We have integrated advertising support for Android. We plan adding AdMob also to iOS soon.
+
+Q: Regards from Italy, Sicily
+
+A: Hi from Italy, Emilia
+
+Q: Congrats on the 10.4 release!
+
+A: Thanks- Marco
+
+Q: Were jedi jcl/jvcl maintainers invited to beta?
+
+A: Yes
+
+Q: I'm looking to use DataSnap (TCP/IP) for the 1st time. Is having a few thousand concurrent sessions ok?
+
+A: That streches the technology, unless you use the REST model. RAD Server is more scalable by design.
+
+Q: excuse me. How should the system infrastructure be in order to use EdgeWebBrowser?
+
+A: You need Edge Canary verison plus an SDK available in GetIt, this includes a DLL to distribute with yuor application
+
+Q: When is the bugfix plan for C++Builder's Code Insight?
+
+A: We've fixed some items in 10.4, but plan the majority in 10.4.1. 10.4 introduces a new debugger to C++ - more on that later - it's great
+
+Q: Nice Work. Is it recommended to uninstall any version I have now (10.3)?
+
+A: No, you can keep both on your system, installing 10.4 on the side of 10.3
+
+Q: Custom managed records ... Cool! No more kluges ... Yes.
+
+A: ;-)
+
+Q: Has the win32 compiler fixed a bug whereby when compiling multiple projects (in a project group) the line counter giving false results (Negative numbers in the billions of lines????)
+
+A: Yes :) The compiler now keeps a 64bit count. The IDE currently uses a 32bit unsigned count (previously, it was 32bit signed) and we'll update that to 64bit in future. But in 10.4 because we changed from signed to unsigned, we already have twice as many lines before overflow
+
+Q: Is there a problem on GetIt? I get an error on every item: metafile RADStudio.json not found.
+
+A: If you intalled with the ISO, you need to issue a command "GetItCmd.exe -c=useonline"
+
+Q: EdgeWebBrowser sample application "Failed to initialise Edge browser control" return. What's the solution?
+
+A: Did you install all requirements?
+
+Q: record type function return values are pass as hidden var parameters. For managed records would A := foo(); invoke the Assign operator?
+
+A: I think they do -- I'll ahve to duuble check -Marco
+
+Q: Are Managed Record still living on the stack?
+
+A: Yes, they are records in that respect
+
+Q: Will there be a recording of the session sent later?
+
+A: Yes, a webinar replay will be made available.
+
+Q: you say that manage record is better then class, can you explain that more in example?
+
+A: Not better in general, but are allocated in local memory/stack. So they can help with memory management
+
+Q: Is the redesigned Code Insight faster?
+
+A: It can be! It "primes" itself when you open a project. For big projects that can make a difference (though for gigantic projects you may want that off if priming takes too long). It also feels faster since the IDE always responds.
+
+Q: When will Bookmarks and Navigator be on GetIt for 10.4?
+
+A: Yes they will. They're not there yet but will be soon
+
+Q: Will you speak about the SDL2 library for C++?
+
+A: Not in this webinar but we plan to get it on GetIt. We have one known bug with audio on Win32 before putting it up
+
+Q: what files needed to deploy an application with TEdgeBrowser
+
+A: The requirements are in the docs: Canary Edge + SDk and copy the DLLs: http://docwiki.embarcadero.com/RADStudio/Sydney/en/Using_TEdgeBrowser_Component_and_Changes_to_the_TWebBrowser_Component
+
+Q: Are the Code Insight enhancements also in C++ Builder??
+
+A: We have some C++ code insight improvements, but the majority of C++ code completion work is still ongoing. It will benefit from the Delphi work here though
+
+Q: Any new windows dll implemented into Delphi in this version.
+
+A: We have exposed some new Windows APIs in Pascal, if that's the question
+
+Q: Will Konopka Raize Components be available for 10.4?
+
+A: We'll have all of the components in GetIt soon
+
+Q: Does Arc model code will work Ok on 10.4 non Arc model on mobile platforms?
+
+A: All platforms use non-ARC now
+
+Q: Is FastMM5 included / supported?
+
+A: No, it was just pre-released. And we'll have to evaluate it and its license
+
+Q: Can I use regular expression in insight ?
+
+A: It filters by what you type, currently (eg 'rect' will show 'ClientRect', 'GetRect', etc). We're considering making it even more flexible in future
+
+Q: Any news for High-DPI and MDI-Forms?
+
+A: We addressed a couple of issues, but some of the problems are deep at the OS level
+
+Q: it would be nice if you create separate Errors tool window (similar as Messages and so on). shaking Structure tree everytime when typing is not looking good and actually diverts from work.
+
+A: Good idea! Please add a feature request to QP
+
+Q: Is the CodeInsight popup resizable? The old was very helpfully resizable.
+
+A: Yes it is, you can drag it to any size you wish
+
+Q: Can you share the list of new Windows APIs in Pascal
+
+A: I don't have it at hand, you can find the changes in the closed QP issues list
+
+Q: code completion while debugging is big advantage!
+
+A: We think so too :)
+
+Q: Hi. With ZeroBasedString to off, does it mean that all strings are "pascal string" and first character is number 1 ? Is the case for helpers on string too ?
+
+A: Yes, that is the idea. for [] operators. TStringHelper methods remain as they are
+
+Q: is there an increased system requirement from a HDD space , CPU and RAM requirement for 10.4?
+
+A: Yes, we increased the requirements here - previously they were very low. We ask for 3GB of RAM but recommend higher, for example
+
+Q: Are the IDE improvements (code insight etc) specific to Delphi or do they also apply to C++ Builder
+
+A: Mostly specific to Delphi. C++ code insight work is ongoing, but it will benefit from the IDE-side work done for Delphi
+
+Q: Regarding my question about Assign for record type function return values, is that this may be expensive. Consider a record which wraps an array and you want to impose a by value semantics to the assignment operator.
+
+A: Good point. We'll have to work on performance improvements for managed records, and plan doing it.
+
+Q: Will Konopka Raize Components be available for 10.4? - you said 'soon'. Do you have a date?
+
+A: No specific date, just as soon as possible
+
+Q: Do the different LSP processes use multiple cores if available?
+
+A: Windows schedules the processes as it wants, we don't override. But effectively yes: it is very likely they will end up scheduled to different cores than the IDE
+
+Q: Congratulations on the great new release. And having a well-informed technical staff answer questions here is a GREAT decision
+
+A: Thanks!
+
+Q: Do native checkboxes now scale correctly with this api change?
+
+A: Native (non styled) check boxes were working fine in 10.3.3, to my knowledge
+
+Q: Great thing VCL per Control Styling !!!
+
+A: Yes, it is very handy
+
+Q: Can a Firemonkey App using EdgeWebBrowser run in IOS and Android?
+
+A: EdgeBrowser (WebView2) is a Microsoft Windows only component for now
+
+Q: Would Codeinsight work for code in include-files ? As you claim what compiler sees it is forwarded to IDE.
+
+A: If you have an .inc file its contents will be seen in a .pas file that includes it, and you can complete to show items defined in the .inc
+
+Q: Current mobile project in C++ Builder depends on ARC. Can ARC be switched ON in 10.4 until the project can be migrated to no ARC?
+
+A: No, ARC is disabled and you'll have to clean your code when migrating to 10.4, unfortunately keeping the two models active at the same time wasn't really a technical option
+
+Q: Are MDI-Applications still supported? Are they depracated?
+
+A: You should really ask Microsoft. They don't receive some of the new DPI change messages at the Windows level, hard for us to keep good quality
+
+Q: It would be really nice to get a "real world" example of why managed records and the initalizers etc are useful. An example to show you how is OK, but WHY is it a good thing?
+
+A: Great question. Managing resources is a good one, eg implementing the RAII (resource acquisition is initialisation) idiom
+
+Q: I am hearing reports that Spring4D will not work in 10.4 due to the modified FreeAndNil(). Is there anything we can do in the meantime if this turns out to be correct. In other words is there maybe a switch inside the Otions in the IDE to revert back to the old FreeAndNil() ?
+
+A: It is a global function that can be replaced in a new unit by any developer, but addressing this in Spring4D code should be fairly simple
+
+Q: In vcl, besides the styles, are there any other new components?
+
+A: Yes, covered next
+
+Q: What heppened when I not define specific image for a resolution, is the base image scaling?
+
+A: Yes, if no resolution is avaialble we use scaling. And you can provide your own scalcing algorithm, discussed in a bit - Marco
+
+Q: Do the different LSP processes use multiple cores if available?
+
+A: Yes - Windows can schedule them as it wishes. Each process does most of its work on one core, but if your machine has multiple cores it's likely Windows will put the different processes on different cores
+
+Q: Hi, thanks greath works!!! Is there any kind of support for push notification system (android .. ios...)?
+
+A: Yes, that has been in RAD Studio for quite some time
+
+Q: I've chased DPI "bugs" when it looks like there are known issues, as highlighted in this demo. Are there any known DPI items that do not work in 10.4?
+
+A: Not that we know, safe for minor elements. The main areas of the VCL are now all high-dpi aware
+
+Q: If you resize a VCL form, do all the child controls like edit boxes now scale nicely in proportion as a user resizes the form? Is there a way to do that?
+
+A: Forms are high DPI, so will scale as the monitor scale changes. For auto-resizing, the Align and Anchor properties are the best way to handle that
+
+Q: When I re-join the webinar, I start from the beginning?
+
+A: yes, this is gotowebinar... not sure if there is an alternative option
+
+Q: I write Point of Sale Software - I had to write my own style manager to handle button styling. The new style stuff is a godsend for Point of Sale.
+
+A: Great!
+
+Q: Is there any compression for the pictures of the controls in VCL?
+
+A: You can use PNG or JPEG images for VCL images - we have TGraphic implementations
+
+Q: Can the Multi Style stuff Work in Windows 7 targets ?
+
+A: Some of it works, but we leveral PerMonitorV2, which is a Windows 10 only feature. Windows 7 has limitations at the operating system level
+
+Q: the are an article about the changes in Arc?
+
+A: we can consider writing one!
+
+Q: Why is MacOS platform missing in C++ Builder 10.4?
+
+A: C++Builder only supported 32-bit Mac apps, and with Catalina that is no longer applicable, so we removed the platform. You can still use 10.3.3. Please let us know (david.millington@embarcadero.com) if you use macOS
+
+Q: Has the TEdgeBrowser support for reading JavaScript results?
+
+A: It should, it is the full engine
+
+Q: Are classical functions of IE all supported for edge ? for exemple the print option
+
+A: We haven't tested this, sorry
+
+Q: Would be nice to have back the old autocomplete way(I think an older version worked this way) on search text on the editor, If I want to Search for MethodA and I have on source code MethodAA, MethodAB, MethodAC . Currently autocomplete shows on alphabetical order and selected MethodAB. If I search again, MethodAB should be the first in the list, the last one I searched.
+
+A: You can switch back, but I believe the old one worked that way too.
+
+Q: Does the Boost library include feature compatibility test results, so that we know which features we can rely on?
+
+A: We run tests and publish the percentage results on our doc
+
+Q: Will it take much memory if an application is deployed with much images for every element?
+
+A: The architecture has images at different resolutions only for some key elements. had we replaced the large bitmap styles use with one for each resolution, it would have been a big issue in this respect
+
+Q: can you please demonstrate LIVE if IDE formatter for Delphi now works correctly with inline variables? i.e. it does not insert a linebreak after a var keyword. thanks!
+
+A: It does not
+
+Q: Re Multi Style stuff - not worried about the DPI stuff, just the colouring etc. If the colouring, fonts etc stuff works - I'm good.
+
+A: That should work on any version of Windows
+
+Q: Does TEdgeBrowser work with 64 bit platform?
+
+A: Yes, works on both 32 and 64 bit. But you need a different DLL with the same exact name (Msft requirement)
+
+Q: Can the Edge browser component be used on pre-Win10 installations?
+
+A: Microsoft plans to make it available for Win7 and Win8 -- up to them
+
+Q: Does the Edge component allow loading of local files and/or in memory content (strings and streams).
+
+A: I'd imagine, but haven't tried
+
+Q: is it a break ?
+
+A: Yes, we'll resume shortly
+
+Q: (No sound from David)
+
+A: We have added a break -- relax 5 minutes ;-)
+
+Q: when will by compiler c++ for linux
+
+A: Please email us about this (and Android and mac OS) - david.millington@embarcadero.com
+
+Q: Stefan told me today that 10.4 should support Spring4d pretty easily. Don't worry!
+
+A: Great!
+
+Q: Do I have to ship a new app version if Edge WebView2 gets updates? How often this .dll gets updated?
+
+A: This depends on Microsoft, we hope not. But it is still a pre-release
+
+Q: Would this webinar be available to view after today?
+
+A: Yes, we'll make a replay available
+
+Q: It's 7 pm in Moscow :)
+
+A: Glad you could join us!
+
+Q: Can I use the LSP with other IDE (e.g. VSCode)?
+
+A: It's an open protocol. We do send a custom initialisation message. We're considering options re other IDEs... email if you're interested! david.millington@embarcadero.com
+
+Q: How do I upgrade from 10.3 to 10.4 without loosing settings and installed components?
+
+A: Use the Migration Tool
+
+Q: when will by FMX linux for c++
+
+A: Please email david.millington@embarcadero.com for interest in Linux, macOS, Android
+
+Q: Can the web loader dll for the TEdgeBrowser component be statically linked to the project?
+
+A: Not at this point, it has been asked to Microsoft to offer that option
+
+Q: Is there a method on TEgdeWebrowser to point temporary files in specified directory for instance at User Profile?
+
+A: Is should be possible, but I haven't tried
+
+Q: Really cannot see the point of the Edge.dll added here. That loses the advantage of Delphi single exe file and multiplatform RAD tool. Heading nowhere?
+
+A: It is a Microsoft requirement. There is nothing we can do. We hope they'll remove that in the final version
+
+Q: Just tried the TVirtualImage today - excellent! Loving all the high DPI stuff!
+
+A: Thanks
+
+Q: Have you managed to fix Subversion crash issue? (working from ide with Subversion ымт)
+
+A: Please provide the issue # and we can compare it with the list of bugs that was fixed. There were too many fixed to have them all memorized off the top of our head. http://docwiki.embarcadero.com/RADStudio/Sydney/en/New_features_and_customer_reported_issues_fixed_in_RAD_Studio_10.4
+
+Q: is 10.4 IDE now reflects well when changing IDE's main font (comparing to 10.3.3)? as IDE does not support scaling (similar to Slack for instance), i change IDE main font size to be able to work on my 40'' 4k display. it works fine in general, but lot of things look ugly - like buttons alignments, tree controls etc.)
+
+A: We support font changes in the IDE, but are still working on full high DPI. See http://docwiki.embarcadero.com/RADStudio/Rio/en/System_Registry_Keys_for_IDE_Visual_Settings
+
+Q: Why is the migration tool needed for 10.3 to 10.4 upgrade?
+
+A: Because there are settings you cannot and might not want to migrate...
+
+Q: Do we have to ship the dll for Edge?
+
+A: The DLL is an interface, plus the users needs to have Edge on this machine or a special packaged version in the future
+
+Q: Is Push Notification (Firebase) available for iOS in 10.4?
+
+A: No, it is very high on our todo list
+
+Q: hellow, very exciting with this release
+
+A: Thanks
+
+Q: Where do I get the Migration Tool?
+
+A: If you are currently on a recent version (like since Seattle I believe) then it is in the Start Menu next to RAD Studio. Or you can find it in the folder you installed Delphi into. "C:\Program Files (x86)\Embarcadero\Studio\21.0\bin\migrationtool.exe"
+
+Q: The best Delphi ever !
+
+A: agreed
+
+Q: GoToWebinar wasn't built whit Delpy! ;-)
+
+A: yes
+
+Q: Can you confirm that all the high dpi improvements apply equally to C++?
+
+A: Yes, all VCL including high DPI styles and the new components can be used from C++ :)
+
+Q: Have you considered adding support for the apple ad framework on delphi macOS applications?
+
+A: Apple iAD is long dead, sorry
+
+Q: Code Insight during debugging seems very useful. Does also the "simple" navigation work during debugging? E.g. Ctrl-clicking an identifier ==> jump to its declaration.
+
+A: Yes, you can do that during debugging too :)
+
+Q: when will by visual assist for c++
+
+A: It's on the roadmap, so coming soon
+
+Q: we need new licence key for 10.4? or can we use 10.3?
+
+A: Your existing license works as long as you are on update subscription
+
+Q: Can I just use other LSP servers as well, for instance add a JavaScript LSP server for .js files? If so, do you have an example LSP Server that works with Delphi 10.4?
+
+A: If it uses standard IO to communicate, it should, yes! We tested with a Python server
+
+Q: Is Edge enabled in tWebBrowser for FMX
+
+A: No VCL only for now
+
+Q: I see lots of people asking if 10.4 will work on the same PC as 10.3 - the answer is yes they can be installed at the same time BUT it's worth pointing out that 10.4 requires Windows 8.1 upwards. It will not work on Windows 7 since Windows 7 has now been officially deprecated by Microsoft.
+
+A: Yes, thanks
+
+Q: about the Tobjectinterfaced and arc, are there changes?
+
+A: Interfaces keep working the same
+
+Q: Do inline variables now actually work? They certainly didn't in 10.3.2 (they gave rise to incorrect compiler errors and misplaced red squiggly lines. I had to give up using them which was a great shame.
+
+A: They do. The new LSP Code Insight will not give errors for inline vars :)
+
+Q: Is the Microsoft Edge Webview engine not available yet?
+
+A: It is avaialble as a preview, as part of Edge Canary version
+
+Q: do you have any plans to enhance built-in Git support? (right now it only allows to work with current branch/repository. thus there is a need to have external Git client apart of Delphi IDE. that makes IDE Git support a bit useless, i have to say)
+
+A: Please ping us and let us know what you'd like to see. It's an area of interest.
+
+Q: how to print TEdgeBrowser without header, foter from code (adres url, page number)
+
+A: no idea, sorry
+
+Q: When I run the EdgeBrowser demo I get this error (what needs to be changed?)
+
+Edge initialisation error
+
+Could not find Edge installation. Do you have a version installed that's compatible with this WebView2 SDK version?
+
+A: Possible, might depend on the version of Edge and of the SDK
+
+Q: Do TEdgeBrowser supports DOM Management routines/interfaces like classic TWebBrowser have IHTMLDocument with it's GetElementById? or does it offers some other approaches?
+
+A: It offer a different approach, that I know
+
+Q: For us, we've got to use third party tool for svn, but I hope you will close that issue some day.
+
+A: Please ping us with what you'd like to see in the IDE re source control - david.millington@embarcadero.com, or in QP
+
+Q: Having a tWebbrowser based on the interfaces defined by Microsoft, will the code looking for elements in a web page be very different or could code be reused ?
+
+A: Deep level integration with Edge and IE are different, all interfaces are different
+
+Q: Another funny thing, that I can't change IDE editor colors without 3d party utilities :)
+
+A: You should be able to in 10.4! :)
+
+Q: I'm being recruited for a Delphi team lead position at a nearby business. May I send them the link to the replay of this webinar?
+
+A: The replay will be made avaialble soon
+
+Q: Will the new CodeInsight also have color-coding for the search results? (E.g. found characters in red, etc.)
+
+A: Nice idea! Please add to QP
+
+Q: Is there a way to stop these questions scrolling down to the bottom every time someone posts a question.- I'm trying to read thought all the questions and it's incredibly frustrating as it jumps to the end as soon as someone posts a new comment!
+
+A: You'll have to ask ToGoMeeting sorry -- we don't like it either
+
+Q: the DOM Management routine, you say it will use another approach, is there any documentation already?
+
+A: you'll have to refer to Msft docs
+
+Q: Like the titlebar, when can we use it on FMX as well? huge flexibilities and fancy titles ideas .
+
+A: No, this is a VCL component for now
+
+Q: When TTitleBarPanel for FMX ?
+
+A: :) VCL first... please add a feature request to QP!
+
+Q: Does Edge can exec JS scripts? I miss - does Edge component cross-platform?
+
+A: It should work, but not tested by me - Marco
+
+Q: 10.3.3 provided 'enhanced bookmarks by use of a add-in. Have enhanced bookmarks now been fully integrated in 10.4?
+
+A: They'll be in GetIt soon
+
+Q: Ah - so might that by why I had a very different experience with the 10.3 title bar?
+
+A: Yes - 10.4 uses a completely different implementation of the title bar in the IDE. 10.4 uses the VCL control you're seeing onscreen now
+
+Q: Happy to see this. 10.4 seems to be a really thorough version, one worth upgrading to! (Webinar tech was flaky though, and the pause was confusing. I'd prefer no pauses in the future.)
+
+A: We felt a pause was good for a 2 hours event
+
+Q: All these components should be FMX as well :-(
+
+A: We'll consider for sure
+
+Q: You stop the scrolling in the gotowebinar question panel if you hold and drag the scroll handle.
+
+A: OK
+
+Q: Is the entire titlebar customizable colorwise or just left part of it? The demos on the announcements make it look like we'll have to live with the default background color for the maximize/minimize/close part of the titlebar.
+
+A: All of it. You can customise the system buttons as well
+
+Q: AH! fixed the Edge Browser. The trick is you need the Canary version the LTS version does not support Web2View!
+
+A: Yes, Canary version is required -- but this is only until this is released
+
+Q: I had a continual problem with AV errors from Delphi when I would change projects or exit Delphi on projects that I compiled voth WIndows and MacOS. Does 10.4 clean those up?
+
+A: Hard to tell without knowing the specifics, we fixed many issues!
+
+Q: Is there a new docker image with updated PAserver for linux
+
+A: It is coming
+
+Q: The Web install finally worked!
+
+A: Good to know
+
+Q: To the people asking TEdgeBrowser allows you to execute JS and get the results and with that you can do pretty much everything
+
+A: Thanks for the confirmation
+
+Q: How do you know if you have the Canary version? Is their a version number to check or does it say Canary on it somewhere?
+
+A: It is a separate donwload on Edge web site
+
+Q: Is there a complete list of fixed issues somewhere - need to read up on all the goodness :)
+
+A: http://docwiki.embarcadero.com/RADStudio/Sydney/en/New_features_and_customer_reported_issues_fixed_in_RAD_Studio_10.4
+
+Q: Is High DPI on FMX when on windows improved as well? The fonts used to be quite blurry with FMX versus VCL.
+
+A: We have made some improvements, but there is still quite a bit do to
+
+Q: Can VSCODE use the Delphi LSP?
+
+A: It's an open protocol. We do send some custom init options. We're looking into if we should support VSCode - can you email us, david.millington@embarcadero.com please?
+
+Q: How do I upgrade from delphi xe4 to 10.4 without loosing settings and installed components, and code?
+
+A: Settings you can move via Migration Wizard tool. Components you have to install. Code is largely compatible
+
+Q: Are there any improvements on Code Insight? Usually painfully slow in C++ Builder
+
+A: Some, but this is an area we're still working on
+
+Q: Note the requirement for the Canary version of Edge only holds true while the WebView2 browser control is pre-release. That will change when MS have finished the pre-release cycle, hopefully sometime soon.
+
+A: Correct ;-)
+
+Q: Note the requirement for the Canary version of Edge only holds true while the WebView2 browser control is pre-release. That will change when MS have finished the pre-release cycle, hopefully sometime soon.
+
+A: Yes - thanks!
+
+Q: Is MSHTML supported in the EdgeBrowser and WkWebView objects?
+
+A: Each component has a different low level interface
+
+Q: Did you fix the object inspector bugs? 1. Properties search (in a hierarchical way); 2. Disapearing last few symbols in the edit box of Ob-Ins.
+
+A: I think these have been addressed
+
+Q: Does the edge browser support themes? eg scrollbar
+
+A: nope
+
+Q: Interbase will by on cloud - Azure, AWS?
+
+A: We'd love Microsoft or Amazon to host it, but not simple to convince them
+
+Q: IDE Patch 1 installed! :)
+
+A: We really hope the new patch mechanism is a good improvement
+
+Q: I understand this is all very focussed on Win 10, but is it correct that I can no longer install Delphi on Win 7 (despite a 3-yr update subs)?
+
+A: We don't recommend it, but you can install it. Win 7 is now out of support by Microsoft
+
+Q: Can i install AdoptOpenJDK and Android SDK at the same time without getting problems?
+
+A: You should be able to...
+
+Q: If I open a support case would they have the knowledge to get TEdgeBrowser up and running or would they just proceed with the usual uninstall delphi and re-install delphi solution that they tend to go with?
+
+A: I recommend reading our docs in details, first http://docwiki.embarcadero.com/RADStudio/Sydney/en/Using_TEdgeBrowser_Component_and_Changes_to_the_TWebBrowser_Component
+
+Q: Can you link here the latest Rad Studio roadmap (specifically for C++ Builder)?
+
+A: We plan updating our public roadmap before the summer
+
+Q: I ♥ the new patch installation procedure!
+
+A: ;-)
+
+Q: "RestRequest has a way of cancelling an Asynchronous request". Does this mean that a TRestRequest.Execute operation can be cancelled if it "goes away" for a long time?
+
+A: Correct
+
+Q: Just to clarify - Windows 7 isn't entirely out of support by Microsoft. For my customers running Windows 7 Posready - Microsoft support ends 12th October 2021. We are only just getting rid of our last Windows XP customers :)
+
+A: Sure, we understand, We support targeting Win7 for applications, not officially for installing the IDE (but it mostly works fine)
+
+Q: I cannot remember if I used ISO or web install for my previous 10.2 and 10.3 - how do I see which one I used, and does it matter which one I use for 10.4?
+
+A: It doesn't matter for 10.4, you can install major releases together
+
+Q: Interbase grew when it was open sourced, any chance Kylix could be open sourced
+
+A: FMX for Linux builds on part of and replaces Kylix. I don't believe there are any plans to make that open source.
+
+Q: Interbase grew when it was open sourced, any chance Kylix could be open sourced
+
+A: Kylix? We now have a much better Delphi Linux compiler
+
+Q: A Delphi 10.4 VCL app runs 100% in WINDOWS 7?
+
+A: Yes, we support targeting Windows 7 with your apps, we just don't support installing the IDE in Win7
+
+Q: I read some "new patch installation" post. Can you talk about it ?
+
+A: New patch installation blog is about one hour old :) https://community.idera.com/developer-tools/b/blog/posts/rad-studio-10-4-patch-1-missing-files-and-c-debugging---and-a-new-way-to-install-patches
+
+Q: A Delphi 10.4 VCL app runs 100% in WINDOWS 7?
+
+A: Some of the features require new versions of Windows 10, for example all of the 4K monitos support is based on PerMonitorv2
+
+Q: What is the status and future of the CMAKE compatibility
+
+A: Several CMake changes this release too! C++ feature support for example. The aim is to help CMake scripts work unmodified even if they were written for, say, VC++
+
+Q: Is the Delphi ISODevice64 build broken? 10.4 IOSDevice64 Posix.Errno not found!
+
+A: That's an issue we are not aware of... please file a QP report
+
+Q: when will by supported MTOM in WSDL
+
+A: under consideration
+
+Q: Will all questions asked here be answered? Has my question reached you? Until now it is unanswered.
+
+A: The questions are coming in faster than we can read them. Not sure what your question was or if it will be answered. Certainly trying to anser all of them. If not you can follow up with PM after the webinar.
+
+Q: Android for C++ Builder?
+
+A: Please email david.millington@embarcadero.com with questions re Android, macOS, Linux for C++
+
+Q: Is the IPWorks offering still available? (And has it been updated with latest bug fixes from nSoftware?)
+
+A: Yes, it is being updated
+
+Q: What is the better delphi linux compiler you have (better than kylix) ?
+
+A: The Delphi for Linux compiler with FMXLinux.
+
+Q: What is the better delphi linux compiler you have (better than kylix) ?
+
+A: Delphi Linux compiler, but it is only avaialble in Enterprise edition
+
+Q: Do the editor support fonts with ligatures?
+
+A: Not yet. It renders using GDI. Would be nice to change to Direct2D sometime...
+
+Q: do you have any plans to support font ligatures in code editor? (like Fira Code font for instance). that would be very appreciated
+
+A: No immediate plans but it is a definite nice-to-have
+
+Q: Previously Linux support wasn't available in Pro version as it was client/server. As it can now be used to make desktop apps are there plans to make it available below Ent/Arch
+
+A: For the time being, it remains Ent/Arch only. We'll keep evaluating alternative options
+
+Q: On Windows 7 don't forget you have an old operating system and no patch. For example you don't have TLS2 for https access. Some web services needs it.
+
+A: correct
+
+Q: is there any plan with Delphi to make a Linux app to build to ARM (RPI4)?
+
+A: This is being considered
+
+Q: when will be multithreaded compiling for c++ (worked multithreaded)
+
+A: We're looking into this
+
+Q: Does the new C++ Debugger work for 32-bit code?
+
+A: The new debugger is C++ 64-bit only for now
+
+Q: Is the new debugger also used when debugging 32-bit applications?
+
+A: Only 64-bit C++ for now
+
+Q: Now with Linux GUI ist should be available in proffessional
+
+A: We can consider, but no change for now
+
+Q: Again Please - What is the oldest supported Android OS please
+
+A: http://docwiki.embarcadero.com/PlatformStatus/en/Main_Page
+
+Q: [DCC Fatal Error] MasterDetailApplication.dpr(6): F2613 Unit 'Posix.Errno' not found. MasterDetailApplication.dpr(6): Unit 'Posix.Errno' is used by 'Posix.Pthread' MasterDetailApplication.dpr(6): Unit 'Posix.Pthread' is used by 'System.Internal.ExcUtils' MasterDetailApplication.dpr(6): Unit 'System.Internal.ExcUtils' is used by 'System.SysUtils' MasterDetailApplication.dpr(6): Unit 'System.SysUtils' is used by 'System.StartUpCopy'
+
+A: I see. Please report on QP, or it might get lost...
+
+Q: Is it possible to write a shared library for Android at 10.4? (*.so)
+
+A: yes
+
+Q: FYI You need to apply a registry patch to enable TLS 1.1 / 1.2 support on Win7
+
+A: Thanks for the info
+
+Q: what about FMX and RTL languages ?
+
+A: http://www.fmxrtl.com
+
+Q: Philosophical question mostly, but: why are the managed record special methods denoted with 'class operator' and not 'record operator'?
+
+A: Because all operators are closed "class operators" even if the can be applied only to records... Honestly, not sure this was a decision made quite some time ago
+
+Q: whaty does th Delphi Linux Compiler ( the bast of the world after that you said ;) ) is available only in the enterprise edition and not to all of us ? how much is the extra cost to get it ?
+
+A: https://www.embarcadero.com/app-development-tools-store
+
+Q: Will the silent install return in the lifecycle of 10.4 or is it coming with 10.4.1? We're basically fixed to the silent install being available now that our build infrastructure is based on Windows Server Core.
+
+A: We plan having the silent installer availble soon for 10.4. The current ISO has that option, but it is not working properly, still working on it
+
+Q: Find in "just the current file" is a simple but really useful addition - great!
+
+A: :)
+
+Q: Are there improvements to the Classic C++ 32-bit compiler?
+
+A: No... the classic compiler is maintained but new features go into the Clang compilers. We encourage you to upgrade. The new debugger for Win64 may make that a good choice!
+
+Q: So is the Edge DLL the connection between our RAD-created (Edge-using) applications and the user's Edge installation?
+
+A: No, the Edge supprot DLL has to be distributed by developers with their applications -- unless Microsoft changes this requirement
+
+Q: If this is being covered then ignore this question. With 10.4 I'm looking to install Delphi with an Administrator account on my laptop but use Delphi from a non-privelaged account. I'm looking for a way to install Delphi, GetIt packages and personal components as Administrator and have them available to the non-privelaged user. Any way to do this? An off-line response is OK.
+
+A: The non-privilaged user would need to launch Delphi as the privilaged user.
+
+Q: Any other BrowserEngine planned? e.g. Firefox?
+
+A: Note at this point. Edge is part of the new Windows Runtime architecture, just announced at BUILD. It will be part of the operating system core libraries.
+
+Q: I was looking forward to it, but ... The installation instructions suggest D10.4 will only run on Windows 10. Please reassure me that this is a typo.
+
+A: Depends on what you want to do. You can use a VM to install it on other OSs and get the full experience. Otherwise you can use the compilers and libraries via Wine on other OSs, but that isn't officially supported.
+
+Q: Hi, How many are attending today ?
+
+A: Many, we are very happy of attendance!
+
+Q: I asked what versions of Android OS are supported. The page - Platform status does not show 10.4 version
+
+A: Good catch, we need to update that page
+
+Q: Will there ever be Russian or Ukrainian language packs in addition to German and French?
+
+A: We can consider it. Generally we haven't had many people asking, despite lots of developers there. If you'd find it useful, please add a QP!
+
+Q: Is there any way to see which patches you have installed?
+
+A: Yes, they are listed in the Patches and Hotfixes category in GetIt
+
+Q: While these seminars are quite helpful, some of us would really appreciate text-book style information (Similar to old Sams books). Are any such materials available for modern C++Builder? So very important with the many changes/enhancements.
+
+A: We'd like a book too...
+
+Q: What exactly is [ref] in "const [ref] Obj: TObject"?
+
+Q: Will Find In Files new allow searches within .DFM files as well as .PAS files for the Current Project and Project Group options? Much needed.
+
+A: Currently you need to use file list/mask in that dialog to search in DFM files, but this would be a good improvement
+
+Q: Is the GetIt server working? I can't seem to download even the 10.4 patch, "Cannot load data from the server "RADStudio.json" metadata file does not exist." and Setup cannot continue due to a correupted installation file.
+
+A: Is you install vai the ISO you need to use a command "GetItCmd.exe -c=useonline" to enable GetIt
+
+Q: I was very happy to see the object inspector bug (last part of edit control was hidden) was fixed! Now i can see what i do again :)
+
+A: We fixed a lot of small issues in the IDE, including the Object Inspector :)
+
+Q: GREAT release. But it feels like it was rushed out the door. All free GetIt tools (like CodeSite) should be available. Frankly, it's offensive that you would cause so many of us to try to actually configure the IDE for real work and get stopped because you did a partial release. But, loving everything else about the release.
+
+A: CodeSite is now available on GetIt
+
+Q: Are there any plans to provide integration from IDE into microsoft teams foundation server. Azure devops and other are pushing this into orgs . currently only SVN git etc are present
+
+A: https://www.epocalipse.com/scx.htm
+
+Q: Actually a lot of books have come out the last couple of years
+
+A: True!
+
+Q: Do you feel, too, that records are strongly on the rise? Almost like an old feature getting re-discovered... becoming more and more similar to classes, but with "by value" semantics instead of "by reference".
+
+A: See C# 9 ;-)
+
+Q: Please fix "getitcmd.exe -c=useonline" with an option menu within getit package manager ...
+
+A: correct, thanks
+
+Q: In how many computers I can install Delphi 10.4 with using one license? I would like to install it also in a VM
+
+A: You can install it in a VM. You have a limited number of activations (I forget the total) but you can easily contact support for additional activations if necessary.
+
+Q: There it is again, in the FreeAndNil example: [ref]. What does it do?
+
+A: pass by reference
+
+Q: is ADO still supported for accessing MS-ACCESS databases?
+
+A: Not really actively support, but it is in the product
+
+Q: Do you provide all these slides after the webinar?
+
+A: There will be a replay made available
+
+Q: GetItCmd.exe -c=useonline worked. THANKS! God knows how I'd have found this fix without someone like you being available here! Go Delphi!
+
+A: It is in the release notes...
+
+Q: GetItCmd.exe -c=useonline worked. THANKS! God knows how I'd have found this fix without someone like you being available here! Go Delphi!
+
+A: :)
+
+Q: TAmazonRegion is a excellent feature added (y)
+
+A: Thanks
+
+Q: Are the presentations recorded?
+
+A: Yes
+
+Q: Just for your info, Win7 has been out of support since I first installed it. One of the first things I do is disable Win Updates (despite the pundits) and use other methods (successfully over decades) to keep it safe. I need to avoid the virus called windows updates.
+
+A: OK
+
+Q: >Android and OSX 64 bit for C++. When is it planned?
+
+A: Please email david.millington@embarcadero.com about this
+
+Q: Is there a rough time frame for community edition C++ builder 10.4?
+
+A: 10.3.3 versions of Delphi and C++ Builder Community Edition remain available for download. 10.3.3 was an excellent release and Community Edition users can perfectly well continue to work with that release. The majority of customers who need the best performance, quality and features should be able to purchase the latest release. Our paying customers deserve a premium experience. That, coupled with increased non-compliant usage of Community Edition (which we're actively addressing with our legal team), has resulted in delaying a new release of CE. Over the coming months, we'll determine when a 10.4 version of CE will be released.
+
+Q: Why is FreeAndNil const[ref] and not var ?
+
+A: Good question, and the answer is complicated. It does modify the passed-in variable, despite the const
+
+Q: Shipping only of libcef.dll, icudt.dll 11 MB is currently needed. Looking forward for the MS runtime. Likely the same DLLs :)
+
+Q: Does anyone have a version number for the Canary version of Edge? The version I have installed is 83.0.478.37. I don't know if this is Canary or not.
+
+A: Download is from https://www.microsoftedgeinsider.com/download
+
+Q: "Why is FreeAndNil const[ref] and not var ?" Am I correct in thinking that FreeAndNil cannot change the memory location itself, but can null the contents and therefore do the free operation?
+
+A: var requires passing a parameter of the same exact type, and won't work here
+
+Q: Is there a problem with the Getit server? I am trying to get 10.4 Patch 1 but it stops with a 'Cannot load data from the server' error
+
+A: not that we know, but if you installed via ISO you need to switch first
+
+Q: Why support for the older Code Insight is not dropped if the new one is better. Anything breaking with the new CI one?
+
+A: Given freedom to use the old one if it works better for you, will get dropped in the future
+
+Q: I have problems with my connection. my question : is it possible to print through the edge component like it was possible with IE component. sorry
+
+A: Not sure, it should work
+
+Q: Edge Canary has a Yellow Badge "CAN" on it - very easy to see
+
+A: thanks
+
+Q: BDE will still be available for version 10.4?
+
+A: we plan making it avaialble
+
+Q: Any spoiler news for DevExpress FMXGrid progress you are able to share?
+
+A: Answered below
+
+Q: What about some report builder?
+
+A: we have Fast Report available
+
+Q: Marco mentioned Bit counting standard functions in his blog. Where can I find them?
+
+A: They are in the RTL...
+
+Q: Why don't you use Chromium Embedded Framework instead of Edge?
+
+A: Because of distribution and security updates
+
+Q: Can I have delphi 10.3.3 and 10.4 in the same machine at the same time
+
+A: yes
+
+Q: Can you publicate list of company who use rad studio in eastern europe?
+
+A: no, but there are many
+
+Q: Great version ! (even if I do not use VCL anymore), it will be nice to see new component added to VCL and missing component appear in FMX futur release !
+
+A: sure
+
+Q: what happen with INTRAWEB?
+
+A: it is a third party tool available by AtoZed
+
+Q: Will the log of questions be available for download later?
+
+A: yes
+
+Q: When can expect the community edition for 10.4?
+
+A: 10.3.3 versions of Delphi and C++ Builder Community Edition remain available for download. 10.3.3 was an excellent release and Community Edition users can perfectly well continue to work with that release. The majority of customers who need the best performance, quality and features should be able to purchase the latest release. Our paying customers deserve a premium experience. That, coupled with increased non-compliant usage of Community Edition (which we're actively addressing with our legal team), has resulted in delaying a new release of CE. Over the coming months, we'll determine when a 10.4 version of CE will be released.
+
+Q: Can you share the link for the " [ref] " usage in documentation?
+
+A: answered below
+
+Q: Any plans for wrapping a runtime for Lambda functions in AWS since recently AWS support custom languages?
+
+A: unanswered
+
+Q: Are any Windows Fluent UI effects like Acrylic blur background supported for VCL on Windows 10 in Delphi 10.4? Like Almediadev style controls?
+
+A: Not yet, because they require undocumented APIs. When they are published we'll look at integrating
+
+Q: C# is having records for ages called "Struct"
+
+A: above is a comment. no answer needed.
+
+Q: Any spoiler for new language features planned for the future. Inline VARs are great and managed records are also great.
+
+A: Nullable types are on the Delphi language roadmap
+
+Q: do you have a schedule for JEDI components ?
+
+A: we are working the the libraries maintainers to have them soon
+
+Q: Nullable types coming! Wow, jumping out of joy. Death to Variant. Lovely news.
+
+A: ;-)
+
+Q: You promote Delphi as cross-platform tool...I think you should consider FMX components first :-)
+
+A: That is true, but VCL remains the most used library for our customers -- trying to balance innovation on both
+
+Q: It seems the Fast Reports in GetIT for 10.4 is broken. Package can't be loaded in the IDE.
+
+A: We'll investigate, sorry
+
+Q: Looking forward to Nullable types...
+
+A: ;-)
+
+Q: Is the WebView2 dll that comes from Getit Package Manager the correct one?
+
+A: We'll have to double check, it is a moving target from Microsoft
+
+Q: If you need nullable type, you can use custom managed records. There are blog post about it on the web.
+
+A: Sure, but not exactly the same as native ;-)
+
+Q: is there a new version of paserver ?
+
+A: yes
+
+Q: what are the port to open for paserver for a debug through a router through internet
+
+A: it is in the paserver configuration
+
+Q: Is there a guide on how to get stuff into Get-It?
+
+A: email to Jim or Marco
+
+Q: Are there some RAD server enhancements?
+
+A: Some better integration with ExtJS
+
+Q: Any chance for Clang Tidy, asan, etc ?
+
+A: Yes - not in this release, but we are looking at it
+
+Q: Git IDE integration - probably not a great plan. We dont even use the one in Visual studio. We use SourceTree - way too many features to just include in the IDE
+
+A: The CLI or an External tool like SourceTree is always going to have more features.
+
+Q: Does the new paserver also work with 10.3 still (asking as you can run these side by side)?
+
+A: There is a new version of PAServer, but you can change the port number used for and run multiple versions side by side.
+
+Q: Can I have delphi XE4 and 10.4 in the same machine at the same time ?
+
+A: Yes, they are both major versions and can co-exist on the same machine.
+
+Q: With FMX maturing any plans for rewriting Delphi to be multi-platform itself? A bit of dogfooding will boost FMX performance and component palette ever further. :)
+
+A: There is more than then IDE, also compilers and tools. Not exactly a simple task, but under consideration (in stages)
+
+Q: Just trying to set the IDE to the dark-theme. After each restart the light version comes back... Probably it's just me?
+
+A: That was a new feature just for you. It looks at the current Windows user and does that when you are logged in.
+
+Q: Do you have a program or other which promote/supports component creation for FMX to raise to amount of available components for FMX?
+
+A: No, but it could be a good idea. Thanks for the suggestion
+
+Q: Where can I find the release notes that discuss GetItCmd.exe -c=useonline"
+
+A: http://docwiki.embarcadero.com/RADStudio/Sydney/en/Release_Notes#Offline_Installer
+
+Q: It was a brave decision to unify the memory management model across platforms (and change direction on ARC). Congratulations on that! It really shows that you think about what's best and aren't afraid to 'swallow pride' and can change your mind. I applaud you for that!
+
+A: Thanks. Backwards compatibility is hugely important, so decisions like that are not made lightly. Unified memory model is an important improvement.
+
+Q: Can I have delphi XE4 and 10.4 in the same machine at the same time ?
+
+A: yes
+
+Q: Managed records are great performance wise! Well done.
+
+A: yes, they are great.
+
+Q: Info - I have a machine which has every version of Delphi from 7 to 10.3 (well not 8)
+
+A: very nice!
+
+Q: Has there been improvements for source formatter? (e.g. for inline vars)
+
+A: not, but planned
+
+Q: Any spoiler news for DevExpress FMXGrid progress you are able to share?
+
+A: You would need to talk to DevExpress
+
+Q: Rad server discuss please
+
+A: It is awesome!
+
+Q: Any chance DevExpress components will be available through GetIt?
+
+A: You'll have to ask DevExpress ;-)
+
+Q: But I can add 64Bit to a 32Bit VCL application
+
+A: yes
+
+Q: Shout-out to David-M for all his support on Twitter and Facebook
+
+A: agreed
+
+Q: There seems to be a problem with loading FastReport & CodeSiteExpress during IDE startup .
+
+A: We'll investigate sorry
+
+Q: Well done guys. Delphi is alive and kicking :)
+
+A: 
+
+Q: Thanks Embarcadero for this great release.
+
+A: :-)
+
+Q: Something for SmartTv?
+
+A: Works with Android TV and you can connect to Chromecast too
+
+Q: Most likely the IDE won't become 64bit??? Doesn't it appear that 32 bit will eventually be removed and possibly not all that far away with Windows server already available without 32 bit support?
+
+A: 32-bit won't be removed from Windows any time soon. We're working on multi-process (eg LSP) but note that some components of 10.4 are 64-bit and we require installing on 64-bit
+
+Q: Really good guys - Will install later - hope everyone stays safe and well - catch you on the flip :-)
+
+A: thanks
