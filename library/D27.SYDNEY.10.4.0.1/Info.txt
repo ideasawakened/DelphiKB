@@ -1,0 +1,9 @@
+https://cc.embarcadero.com/Item/30923
+
+RAD Studio 10.4 Patch 1 adds some missing files to the installation. This includes a file needed for Win 64-bit debugging with C++Builder, as well as some other features. More details in the readme file.
+
+English, French, German and Japanese
+
+Available only to registered users of RAD Studio, Delphi, C++Builder 10.4 and All-Access
+
+MD5: 4F65B4E38328A1DE07510CE950D02D73
