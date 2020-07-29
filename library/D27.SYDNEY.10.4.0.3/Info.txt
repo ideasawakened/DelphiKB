@@ -1,0 +1,7 @@
+https://my.embarcadero.com/#downloadDetail/781
+
+Product 10.4 Patch 3
+Description RAD Studio 10.4 Patch 3 (for RAD Studio, Delphi and C++Builder Professional) addresses a number of issues in RAD Studio 10.4. It is a 75 MB download. More details in the readme file. Requires Patch 2 installation.
+Size 120003555
+MD5 3cbb11d63201258ceab51ad43e7b0e49
+Release Date Sun Jul 26 2020 19:00:00 GMT-0500 (Central Daylight Time)
