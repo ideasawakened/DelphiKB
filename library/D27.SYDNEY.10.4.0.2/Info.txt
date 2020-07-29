@@ -1,0 +1,7 @@
+https://my.embarcadero.com/#downloadDetail/763
+
+10.4 Patch 2 (Delphi and RAD Enterprise)
+Description RAD Studio 10.4 Patch 2 (for Delphi and RAD Studio Enterprise) addresses a number of issues in RAD Studio 10.4. It is fairly large to download (around 190 MB). More details in the readme file. Requires Patch 1 installation.
+Size 190443489
+MD5 bd1d0c027975d6aca88aea1fa5992b88
+Release Date Thu Jul 16 2020 19:00:00 GMT-0500 (Central Daylight Time)
