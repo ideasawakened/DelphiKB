@@ -7,7 +7,6 @@ uses
   System.SyncObjs,
   System.Classes,
   iaExample.CDE.WaitingThread in 'iaExample.CDE.WaitingThread.pas',
-  iaTestSupport.DebugLog in '..\..\..\..\..\iaTestSupport.DebugLog.pas',
   iaTestSupport.Log in '..\..\..\..\..\iaTestSupport.Log.pas';
 
 begin
