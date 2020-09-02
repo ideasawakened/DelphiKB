@@ -3,65 +3,101 @@ unit TestFizzBuzz;
 interface
 
 uses
-  TestFramework;
+//  DUnitX.TestFramework, DUnitX.DUnitCompatibility,
+  TestFramework,
+  FizzBuzz.GameLogic;
 
 type
 
-  TTestFizzBuzz = class(TTestCase)
+  TestTFizzBuzzGame = class(TTestCase)
+  private const
+    TestFizzVal = 3;
+    TestBuzzVal = 5;
+  strict private
+    fGame:TFizzBuzzGame;
+  public
+    procedure SetUp; override;
+    procedure TearDown; override;
   published
     procedure CheckFizz;
     procedure CheckBuzz;
     procedure CheckFizzBuzz;
     procedure CheckNonFizzBuzz;
+    procedure CheckFizzText;
+    procedure CheckBuzzText;
   end;
-
-const
-  FizzOutput = 'Fizz';
-  BuzzOutput = 'Buzz';
-  FizzVal = 3;
-  BuzzVal = 5;
 
 
 implementation
-uses
- FizzBuzz.GameLogic;
 
-procedure TTestFizzBuzz.CheckFizz;
+
+procedure TestTFizzBuzzGame.SetUp;
 begin
-  CheckEqualsString(FizzOutput, CalcFizzBuzz(FizzVal, BuzzVal, FizzVal));
-  CheckEqualsString(FizzOutput, CalcFizzBuzz(FizzVal, BuzzVal, FizzVal*2));
-  CheckEqualsString(FizzOutput, CalcFizzBuzz(FizzVal, BuzzVal, FizzVal*3));
-  CheckEqualsString(FizzOutput, CalcFizzBuzz(FizzVal, BuzzVal, FizzVal*101));
+  fGame := TFizzBuzzGame.Create;
+  fGame.Fizz := TestFizzVal;
+  fGame.Buzz := TestBuzzVal;
 end;
 
-procedure TTestFizzBuzz.CheckBuzz;
+
+procedure TestTFizzBuzzGame.TearDown;
 begin
-  CheckEqualsString(BuzzOutput, CalcFizzBuzz(FizzVal, BuzzVal, BuzzVal));
-  CheckEqualsString(BuzzOutput, CalcFizzBuzz(FizzVal, BuzzVal, BuzzVal*2));
-  CheckEqualsString(BuzzOutput, CalcFizzBuzz(FizzVal, BuzzVal, BuzzVal*4));
-  CheckEqualsString(BuzzOutput, CalcFizzBuzz(FizzVal, BuzzVal, BuzzVal*101));
+  fGame.Free;
+  fGame := nil;
 end;
 
-procedure TTestFizzBuzz.CheckFizzBuzz;
+
+procedure TestTFizzBuzzGame.CheckFizz;
 begin
-  CheckEqualsString(FizzOutput+BuzzOutput, CalcFizzBuzz(FizzVal, BuzzVal, FizzVal*BuzzVal));
-  CheckEqualsString(FizzOutput+BuzzOutput, CalcFizzBuzz(FizzVal, BuzzVal, FizzVal*BuzzVal*2));
-  CheckEqualsString(FizzOutput+BuzzOutput, CalcFizzBuzz(FizzVal, BuzzVal, FizzVal*BuzzVal*3));
-  CheckEqualsString(FizzOutput+BuzzOutput, CalcFizzBuzz(FizzVal, BuzzVal, FizzVal*BuzzVal*4));
-  CheckEqualsString(FizzOutput+BuzzOutput, CalcFizzBuzz(FizzVal, BuzzVal, FizzVal*BuzzVal*5));
+  CheckEqualsString(fGame.FizzText, fGame.CalcFizzBuzz(TestFizzVal));
+  CheckEqualsString(fGame.FizzText, fGame.CalcFizzBuzz(TestFizzVal * 2));
+  CheckEqualsString(fGame.FizzText, fGame.CalcFizzBuzz(TestFizzVal * 3));
+  CheckEqualsString(fGame.FizzText, fGame.CalcFizzBuzz(TestFizzVal * 101));
 end;
 
-procedure TTestFizzBuzz.CheckNonFizzBuzz;
+
+procedure TestTFizzBuzzGame.CheckBuzz;
 begin
-  CheckEqualsString('1', CalcFizzBuzz(FizzVal, BuzzVal, 1));
-  CheckEqualsString('2', CalcFizzBuzz(FizzVal, BuzzVal, 2));
-  CheckEqualsString('4', CalcFizzBuzz(FizzVal, BuzzVal, 4));
-  CheckEqualsString('7', CalcFizzBuzz(FizzVal, BuzzVal, 7));
+  CheckEqualsString(fGame.BuzzText, fGame.CalcFizzBuzz(TestBuzzVal));
+  CheckEqualsString(fGame.BuzzText, fGame.CalcFizzBuzz(TestBuzzVal * 2));
+  CheckEqualsString(fGame.BuzzText, fGame.CalcFizzBuzz(TestBuzzVal * 4));
+  CheckEqualsString(fGame.BuzzText, fGame.CalcFizzBuzz(TestBuzzVal * 101));
 end;
+
+
+procedure TestTFizzBuzzGame.CheckFizzBuzz;
+begin
+  CheckEqualsString(fGame.FizzText + fGame.BuzzText, fGame.CalcFizzBuzz(TestFizzVal * TestBuzzVal));
+  CheckEqualsString(fGame.FizzText + fGame.BuzzText, fGame.CalcFizzBuzz(TestFizzVal * TestBuzzVal * 2));
+  CheckEqualsString(fGame.FizzText + fGame.BuzzText, fGame.CalcFizzBuzz(TestFizzVal * TestBuzzVal * 3));
+  CheckEqualsString(fGame.FizzText + fGame.BuzzText, fGame.CalcFizzBuzz(TestFizzVal * TestBuzzVal * 4));
+  CheckEqualsString(fGame.FizzText + fGame.BuzzText, fGame.CalcFizzBuzz(TestFizzVal * TestBuzzVal * 5));
+end;
+
+
+procedure TestTFizzBuzzGame.CheckNonFizzBuzz;
+begin
+  CheckEqualsString('1', fGame.CalcFizzBuzz(1));
+  CheckEqualsString('2', fGame.CalcFizzBuzz(2));
+  CheckEqualsString('4', fGame.CalcFizzBuzz(4));
+  CheckEqualsString('7', fGame.CalcFizzBuzz(7));
+end;
+
+
+procedure TestTFizzBuzzGame.CheckFizzText;
+begin
+  CheckEqualsString('Fizz', fGame.FizzText);
+end;
+
+
+procedure TestTFizzBuzzGame.CheckBuzzText;
+begin
+  CheckEqualsString('Buzz', fGame.BuzzText);
+end;
+
 
 initialization
-  RegisterTest(TTestFizzBuzz.Suite);
+
+//TDUnitX.RegisterTestFixture(TestTFizzBuzzGame);
+RegisterTest(TestTFizzBuzzGame.Suite);
 
 end.
-
-

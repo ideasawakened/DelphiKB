@@ -37,11 +37,17 @@ uses
 
 var
   i:Integer;
+  vGame:TFizzBuzzGame;
 begin
   try
-    for i := 1 to 100 do
-    begin
-      WriteLn(CalcFizzBuzz(3,5,i));
+    vGame := TFizzBuzzGame.Create();
+    try
+      for i := 1 to 100 do
+      begin
+        WriteLn(vGame.CalcFizzBuzz(i));
+      end;
+    finally
+      vGame.Free();
     end;
   except
     on E: Exception do
