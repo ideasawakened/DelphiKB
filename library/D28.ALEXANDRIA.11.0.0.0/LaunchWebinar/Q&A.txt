@@ -1,0 +1,448 @@
+Q&A Log
+Question: Every time someone makes a ‘this one goes up to 11’ Spinal Tap joke they have to buy everyone on the team a donut. 😉
+A: Oh, donuts for everyone!
+Question: good afternoon from Germany.
+A: Good morning from Idaho! Glad you could join us!
+Question: Hi from Belgium
+A: Hi
+Question: Greetings everyone from Perth AU.
+A: wow, Perth. I’ve been there, but not recently. I’d love to go back. /Jim,Hello from a fellow Aussie!
+Question: good afternoon from Paris
+A: Hello!
+Question: Good Morning from Mexico!!
+A: Thanks for joining us!
+Question: Hi from the beautiful island of Cyprus!!
+A: Hello!
+Question: Good afternoon everybody, greetings from Brazil
+A: Hello!
+Question: good morning from Utah
+A: Utah! We are neighbors! Do you know Eric?
+Question: Hi from Algeria
+A: Thanks for joining us!
+Question: Greetings from Germany
+A: So many great developers in Germany! Thanks for joining.
+Question: Good morning from Port Dover Canada on the north shore of Lake Erie.
+A: Hi to all
+Question: Greetings from Belgium.
+A: Hi to all
+Question: Good afternoon from The Netherlands
+A: Hello!
+Question: So… good afternoon also from Italy!
+A: Hello!
+Question: goof afternoon from Brazil
+A: Yay Brazil! I love Brazil. Last year was the first year I didn’t visit Brazil since joining Embarcadero 8 years ago. /Jim
+Question: good morning from Mexico
+A: Hello!
+Question: Good afternoon from Germany !
+A: Hello!
+Question: Hello from the Netherlands
+A: Hello!
+Question: Hi from Slovenia! 🙂
+A: Hello! I (David here) visited Slovenia in August, it was lovely
+Question: Hi Guys
+A: Hi to all
+Question: Austria is ONLINE
+A: Welcome!
+Question: Good afternoon from Finland
+A: Good afternoon from Estonia!
+Question: From Brazil
+A: Hi
+Question: Good evening from Uzbekistan!
+A: Hello!
+Question: good afternoon from the Netherlands
+A: Hello!
+Question: HI from Italy!
+A: Hi to all
+Question: Hi from Korea
+A: Hello!
+Question: Hi from Turkey
+A: Hello!
+Question: Hi from Tabasco, Mexico
+A: Hello!
+Question: Hi from Switzerland
+A: Hi to all
+Question: Hi from Brazil!
+A: Hi to all
+Question: Greetings from the south of England!
+A: Nice. England is on my bucket list of places to visit. /Jim
+Question: HIi from Portugal
+A: Hi to all
+Question: Hello from ISRAEL!
+A: Hi to all
+Question: Hi from Bulgaria
+A: Hello!
+Question: Hi from Germany (Ahrtal: Bad Neuenahr)
+A: Hello!
+Question: Hello from Bucharest!
+A: Hello!
+Question: Greetings from Indonesia…
+A: Hello!
+Question: Australia here
+A: Hello from a fellow Aussie,????????
+Question: hi from italy
+A: Hello!
+Question: Good morning, people!!!
+A: Hello!
+Question: Hi from Holland
+A: Hello!
+Question: Hello from the Caribbean (Dominican Republic).
+A: Hello!
+Question: greetings from mumbai
+A: Hello! I had the pleasure of visiting Mumbai! Would love to come back again. /Jim
+Question: hello there, Indonesia is here
+A: Hello!
+Question: Do you support font features like ligatures in the IDE?
+A: No ligatures yet, sorry. High DPI first, but definitely something we would like to add
+Question: Am I seeing this correctly, that the Menu Shortcut hints are gone (underlines)?
+A: No, they should be there – you may need to press Alt to get them to appear
+Question: Hello ,
+Good evening from China
+A: Hello!
+Question: Hi from The Netherlands
+A: Hello!
+Question: Hopefully we have a TImageList that is vector based (as a option)
+A: There’s a third party SVG image list component that you may want to look into
+Question: That’s a pretty snazzy looking SaveAll button.
+A: ;-),Green for ‘safe’, and yes, we think it looks nicer than the old one too!
+Question: Hi from Algéria
+A: Hello!
+Question: Any chance of adding split screen into the editor – never understood why it’s the only IDE that doesn’t have it in a language with different sections.
+A: Certainly, we’d like this too
+Question: Will we still be able to switch from LSP to the Classic Code Insight?
+A: Not for Delphi, this was done to remove some of the open issues and improve stability
+Question: There is still no horizontal splitter in the editor to see two parts (top and bottom) at the same time?
+A: Not yet but it is a feature we’d like to add
+Question: I love the old welcome pages list of recent youtube video uploads and use it frequently.
+A: Glad to hear! It’s still there in the new one 🙂
+Question: Okay Now I love you guys, really excited to work with LSP on VS code
+A: Yay! Love you too!
+Question: This webinar looks sharp and crisp on my High DPI screen.
+A: nice!
+Question: Official Delphi LSP extension for VSCode! That’s great!
+A: agreed!
+Question: When will you support debugging from VSCode?
+A: Unknown. Depends on the reception and feedback of the LSP in VSCode….
+Question: Does string conversion work with the classic c++ compiler?
+A: It uses std::string_view which is a modern C++ feature
+Question: Hi!
+Can OpenCV be used as package maybe even via GetIt? For 32 bit= 64 bit?
+A: Maybe – we haven’t got it in GetIt yet but have heard some people are using it
+Question: I pretty much only use 3 editors. Delphi IDE, Notepad, and Visual Studio Code. is the Delphi LSP in Visual Studio Code going to require a license of Delphi?
+A: Yes. VSC LSP support requires a licences version of Delphi on the same machine
+Question: Do C++’s to_string() and from_string() work for all std: string types (e.g. u16string)?
+A: UnicodeString, WideString and AnsiString (including UTF8String)
+Question: Can I install Delphi 11 with my current Delphi subscription?
+A: Yes, your existing license will work once the product is released
+Question: Any chance for supporting a newer version of SQLite?
+A: The problem with SQLite is newer versions dropped the encription support we leveraged (it’s now a paid feature). You can use a newer DLL version, anyway. We plan opening it to more flexible versioning
+Question: Guys take a look at this project
+https://github.com/DelphiPackageManager/DPM
+this type of things could bring a lot of .net people to delphi world.
+A: Yes, there are a lot of great package managers out there. This is another great one: https://github.com/HashLoad/boss
+Question: What about the small bugfixes for Delphi since 2010?
+A: This release includes a very long list of fixes. You can look up fixes by issue number. https://docwiki.embarcadero.com/RADStudio/Alexandria/en/New_features_and_customer_reported_issues_fixed_in_RAD_Studio_11.0 If you don’t have an issue number then please create a report at https://quality.embarcadero.com/
+Question: Some plan to support HarmonyOS from Huawei?
+A: No plans to target it specifically, but it is based on Android IIRC, so it should just work.
+Question: Does RichEdit 4.1 support HTML?
+A: I don’t think so, only links in plain RTF. Again, we just expose Windows control featuires here
+Question: Removing XP legacies – will app built in Delphi 11 run on Windows XP?
+A: They might, no guarantee. It depends on what APIs you call and components you use. It is certainly possible to make a program that run on XP with Delphi 11.
+Question: VS Code Support with Delphi is awesome! Will debugging also be supported?
+A: Perhaps in the future.
+Question: ‘all new apps will require use of the Billing API for google play’, this version of delphi come with this requirements?
+A: Yes
+Question: Having removed XP legacies is it still possible to compile an application to run on XP machines? If, not we will not be moving to 11 for a while!
+A: We don’t test targeting XP. You might need to tweak the target PE version.
+Question: Does Delphi LSP for VS Code support compilation, code completion, syntax highlighting using some dcu files that do not have corresponding pas files?
+A: Code completion – yes. Compiling and debugging are still in the IDE. It does have syntax highlighting too
+Question: Will the iOS simulator of actual XCode working with Delphi 11?
+A: Not in RAD Studio 11, but it is a feature we want to work on soon – Marco
+Question: hi, how work the spell checking? And can use the french language?
+A: The Windows platform language, I believe
+Question: Does the TRichtEdit hyperlinks also support custom link prefixes like app urls? For example skype:// callto:// mailto:// etc
+A: We just expose a platform component feature here, I think it does but not certain.
+Question: Is the rounded corners demo shipped with D11 samples?
+A: No, but I’ll get you the code. uses
+Winapi.Dwmapi;
+
+const
+// More information:
+// https://docs.microsoft.com/en-us/windows/apps/desktop/modernize/apply-rounded-corners
+// https://docs.microsoft.com/en-us/windows/win32/api/dwmapi/ne-dwmapi-dwmwindowattribute
+// https://docs.microsoft.com/en-us/windows/win32/api/dwmapi/nf-dwmapi-dwmsetwindowattribute
+// Let the system decide whether or not to round window corners
+DWMWCP_DEFAULT = 0;
+// Never round window corners
+DWMWCP_DONOTROUND = 1;
+// Round the corners if appropriate
+DWMWCP_ROUND = 2;
+// Round the corners if appropriate, with a small radius
+DWMWCP_ROUNDSMALL = 3;
+// [set] WINDOW_CORNER_PREFERENCE, Controls the policy that rounds top-level window corners
+DWMWA_WINDOW_CORNER_PREFERENCE = 33;
+
+
+procedure TWin11CornersForm.Button1Click(Sender: TObject);
+begin
+var DWM_WINDOW_CORNER_PREFERENCE: Cardinal;
+case TComponent(Sender).Tag of
+0: DWM_WINDOW_CORNER_PREFERENCE := DWMWCP_DONOTROUND;
+1: DWM_WINDOW_CORNER_PREFERENCE := DWMWCP_ROUND;
+2: DWM_WINDOW_CORNER_PREFERENCE := DWMWCP_ROUNDSMALL;
+end;
+Winapi.Dwmapi.DwmSetWindowAttribute(self.Handle, DWMWA_WINDOW_CORNER_PREFERENCE, @DWM_WINDOW_CORNER_PREFERENCE, sizeof(DWM_WINDOW_CORNER_PREFERENCE));
+end;
+Question: I’ve seen more issues with RemoteApp the IDE that remote Desktop. I had to quit using it because of that. I can’t wait to try again.
+A: There were a lot of fixes there and I’ve heard good things about it during the beta.
+Question: Will UltraEdit be included in the Embarcadero Ecosphere?
+A: Not for now, it’s a ‘sister company’ to us at this time
+Question: I am assuming for the rich test spell checking different dictionaries can be used, like UK/USA, or non latin based languages?
+A: Depens on the OS, you shoudl ask Microsoft….
+Question: Does RAD Studio C++Builder 11 support Android x64 bit platform?
+A: Not in this release, sorry. We would certainly like to in a future release
+Question: What is the planned release date?
+A: Today!
+Question: Microsoft Edge ~ what about Google?
+A: Edge uses Chromium, just like Google Chrome.
+Question: does the TWebbrowser component still support a Document model that we can put values and read values through Delphi code?
+A: Yes, but the code you have to write is different. IE is still available as an option for both VCL and FMX
+Question: Does the new FMX form support FlipChildren
+A: Not really
+Question: Will applications developed in Delphi 11 still render correctly on WIN 10 machines or do we have to maintain two versions of our programs?
+A: The same application will work nicely on both, and also on Windows 7 in most cases
+Question: Is it possible to debug with the CPU window under Android, Mac and Linux as can be done with Win32 and Win64?
+A: No new changes there this release, but we do want to improve debugging on those platforms
+Question: Do I need to have both a MAC Mini and a PC to compile for MacOS as in the past?
+A: Yes, that’s an Apple requirements. They don’t offer tooling on Windows,You can get away with just a Mac and Windows in a VM.
+Question: Is the WebBrowser component also possible in C++ Builder 11?
+A: Yes
+Question: Do you plan to enhance DataSnap in the future?
+A: Not much, but some small changes might happen. More focused on RAD Server
+Question: Datasnap URI mapping… great!
+A: Happy you like it
+Question: I’m absolutely delighted to see AVX supported. This is not a minor language update, many thanks
+A: Happy you like it. It not codegen, though.
+Question: Android API level 30? What about devices that use an earler version of Android?
+A: We support up to Anderoid 30, but you still have freedom to pick different targets and minimum versions, we need to match Play Store reuirements. We fully support Android 8.1 and newer, but with a little effort you can make it work on older versions of Android too.
+Question: Which versions Delphi include RAD Server Lite (Pro, Enterprise, Architect)?
+A: Enterprise and above
+Question: RAD Server Lite comes with which editions?
+A: Enteprise and Architect
+Question: Will RadStudio run in a Windows VM on Mac M1? How does it perform compared to a Intel based MAC?
+A: Yes, it runs great. That is what a lot of my demo videos were made on even. /Jim
+Question: The roadmap for Delphi 11 mentioned compiler improvements to optimize code for floating types. What are the plans for these now?
+A: Something still on the table for future udpates/releases
+Question: {embarrassed look] My concern about getting rid of legacy XP was unfounded. It was Windows 7 I am still having to support. Panic over!
+A: OK, makes sense
+Question: Does the new Android compiler to target Android 11 support the ability to use TLocationSensor when the screen of the phone is locked?
+A: Would need to test it. You certainly need to request the permissions for that. If there user doesn’t set the permissions to allow using location in the background then there is no way to get the location.
+Question: Please make local variables editable so we don’t need the inspector
+A: Please submit a feature request, that is an interesting idea.
+Question: What controls will be supported by the Linux GUI ?
+A: For Linux, use FMX 🙂 So all FMX controls,There is also CrossVCL avilable from Tech Partners?
+Question: Is the IDE 64 Bit?
+A: not yet.
+Question: Thank you for the presentation!
+A: You’re welcome!
+Question: Any news on simulators for iOS past iOS10
+A: We are planning iOS simulator support for Delphi for the near future
+Question: Yesterday, October 5 was mentioned as the release date 🙂
+A: For Windows 11, yes. RAD 11 will be available before
+Question: Will updates for 10.4 stop after 11 is released?
+A: yes
+Question: There seems to be some confusion, how is the language for spell checking, in the edit, set?
+A: The updated TRichEdit uses the Windows operating systems functionality. So it comes from Windows / Microsoft.
+Question: Good afternoon from Spain. What kind of dictionary does the new TRichEdit support?
+A: It is based on the locatization of settings in Windows
+Question: Alexandria or Alessandria?
+A: It’s Alexandria.
+Question: For Linux, use QT, or GTK?
+A: FireMonkey’s FMXLinux uses GTK behind the scenes.
+Question: To quote Spinal Tap – ‘These go to 11, they’re better than 10’ 🙂
+A: Yes! ??
+Question: I love the concept of full LSP support in VSCode – but, someone needs to do standalone .dfm and .fmx designers 🙂
+A: Would be nice.
+Question: With ‘native support’ for MacOS 64-bit, does that mean you don’t need access to XCode to build apps for Mac?
+A: Apple requires we use their tool chain to build for their platforms.
+Question: Will there be support for other Linux distros, like CentOS?
+A: Every Linux distro I’ve tested with works fine. It is just a matter of installing the correct packages. I think I’ve tested CentOS fine. /Jim,Every Linux distro I’ve tested with works fine. It is just a matter of installing the correct packages. I think I’ve tested CentOS fine. /Jim
+Question: Is the community edition enough to support visual studio code in the future?
+A: Don’t know yet.
+Question: Any enhancement and/or fixes (on IOS) for Tethering components ?
+A: Mostly around BLE
+Question: Does FMX support BiDi text?
+A: Not directly, but there are 3rd party soluituions. Take a look at https://github.com/viniciusfbb/skia4delphi
+Question: Will there maybe a native MacOS IDE sometime?
+A: Not in short term, it will take quite some effort
+Question: Push notifications on iOS with Firebase works now?
+A: It shoudl, afaict
+Question: Did Indy get any kind of update or are there plans to replace Indy with any newer cross platform components?
+A: We recently added platform native HTTP client support with built in GZIP and HTTPS
+Question: One more time – VS Code support is awesome. However, without being able to compile it’s probably not very interesting for my day to day work. Debugging in the IDE should be ok for the moment.
+A: We don’t have support specificly for that, but I’m sure you could come up with a way to make it do that if you are interested.
+Question: showmodal available on android firemonkey ?
+A: Mobile uses a slightly different model. Check out FMX.DialogService
+Question: Any news on utilities to import 3rd-party iOS (and Android) SDKs?
+A: https://blogs.embarcadero.com/quickly-auto-generate-ios-osx-and-android-headers-for-delphi-and-c-builder/
+Question: Can you guys make it easy to embed that dll in a exe for edge?
+A: Not sure if that is possible with requirement from Microsoft…..
+Question: Embarcadero will release its GUI for Linux, not from ksdev?
+A: At this time, we plan to keep shipping FMXLinux
+Question: Android 6 still works with a minor modification to the manifest file 🙂
+A: great to hear!
+Question: any backward compatibility issues found so far?
+A: I’ve not seen anything. You should be able to upgrade like a traditinal major version change.
+Question: can you change the zoom with ctrl mouse wheel on the any IDE window separate from the main size?
+A: Please submit a feature request, that is an interesting idea.
+Question: what is minimal version android for 11 rad studio?
+A: we officially support 8.1 to 11
+Question: What can you tell us about cloud support, for example Azure?
+A: There are Azure related units with features related to authentication, etc. And a number of 3rd party libraries that add more features.,There are Azure related units with features related to authentication, etc. And a number of 3rd party libraries that add more features.
+Question: Must go — looks fantastic.
+Looking forward to the improvements.
+A: Appreciate your support.
+Question: Will it be possible as usual to have Delphi 10 and Delphi 11 on the same machine ?
+A: yes
+Question: can i upgrade fast report for embarcadero without buying a new one?
+A: If you have source code then most likely.
+Question: Now that you own UltraEdit, do you plan on integrating that into the IDE?
+A: We are talking with them about what makes sense. To early to say for sure.,We are talking with them about what makes sense. To early to say for sure.
+Question: Has the minimum MacOS version support changed? My old Mac is maxed out at High Sierra 10.13.6, Xcode 9.4.1 which works with 10.4.2.
+A: I don’t think the minumum requiment changed. https://docwiki.embarcadero.com/RADStudio/Alexandria/en/Installation_Notes
+Question: RAD Studio 11 Alexandria – is it the new name?
+A: Yes
+Question: Hello from Russia! Thank you very much 🙂
+A: Hello as well and welcome!
+Question: And of course Happy Birthday to Marco with some delay
+😉
+A: ??
+Question: I’m running with Ubuntu 21 and it’s totally fine…
+A: 🙂
+Question: Downloading now!
+A: Good to hear. Thank you for your support.
+Question: In 10.4.2 we had problems debugging the EMS Dev Server package, the debugger suddenly disappears into the source code. Is it working well in 11?
+A: Suggest trying your use case on the latest version – please report any issues via Quality with a test case.
+Question: Delphi 11 can be installed with Delphi 10.4 side by side with no problems, right?
+A: Yes!
+Question: How well will old third party components behave if I enable the Hi-Dpi IDE? will they be rendered correctly or they need to be fixed to support it?
+A: If they used to work on HIDPI at runtime, they’ll work in the designer most likely
+Question: Looks like Rad Studio ‘11.106491a’ is on my.embarcadero.com – are you saying stay away and wait – or this is a true GA supported version.
+A: Today is GA! Download now!
+Question: YEAH !!! ‘RAD Studio, Delphi, C++Builder 11.0 ISO’ and ‘RAD Studio, Delphi, C++Builder 11.0 Web Install’ are now available to download at ‘my.embarcadero.com’ !!!! ??
+A: :),Great!!!!
+Question: This has been an excellent webinar. Thank you so much. Delphi 11 here I come (as soon as the 3rd party components suppliers do).
+A: Glad this was of great help.
+Question: Is the vs-code plugin available yet?
+A: Yes, check the vs marketplace 🙂
+Question: Installing C++Builder11 right now!
+A: great!
+Question: Can Delphi 11 be installed without unistalling Delphi 10.4.2 ? Or does it?
+A: yes, side by side. Install it today.
+Question: What is the status of the GetIt components? Have they all been updated for Alexandria at this point in time?
+A: Some are updated, others are in progress
+Question: TMS have a RichEdit for FireMonkey: https://www.tmssoftware.com/site/blog.asp?post=728
+A: 🙂
+Question: RichEdit type component for Crossplatform is really needed (at least for me ). hint hint
+A: We have great 3rd party vendors – TMS have one.
+Question: Rad Studio 11 is great, good work!
+A: Good to hear. Thank you for your support.
+Question: There are third party RichEdit components for FMX 🙂
+A: Yes, TMS has one as I’m sure others do too.
+Question: Is it safe to skip 10.4.2 installation and jump from 10.4.1 to 11?
+A: You can install both at 10.4.x and 11 on the same machine. There should be no major source issues jumping from 10.4.1 to 11
+Question: Will the BDE works on Delphi 11?
+A: Looking into it, no promises. Yoiu should really look at migrating to FireDAC with the reFind utility.
+Question: How about using twineCompile – does it still work?
+A: yes! should be in getit soon
+Question: Can I install 11 also side by side with older versions, like also 10.3.3?
+A: Yes
+Question: Is the vs code plugin functional with 10.4.2?
+A: No, this is new part of RAD Studio 11, and requires a RAD Studio 11 license.
+Question: It a Floating form designer with separated code editor available?
+A: Yes. David covered updates to this earlier in the webinar. There are some lovely updates here.
+Question: Hello from Bolivia
+A: hello
+Question: Do you recommend to use IntraWeb in web development.
+A: There are IntraWeb improvements. We’ve done webinars with Chad on some of the changes and they have a huge new version coming. You can use IntraWeb or any of the other 3rd party libraries.
+Question: Thanks for the clarification on RAD server.
+A: You’re welcome.
+Question: I was told that the RAD Server licenses with Architect were only valid for ‘in-house’ servers. In other words, no external deployment to my customers’ servers. Is this still the case? I just had this conversation with sales/VAR team in the past couple of weeks.
+A: It requires your EDN account to install, its designed for installing on multiple webservers under your control. If your customers need to install, then you should look at OEM/VAR. RAD Server lite, is freely distributable.
+Question: are the Abbrevia components available in GetIt?
+A: I think it is, if not then it should be soon.
+Question: I know that delphi support Azure Cloud (some service). But you seem not support ‘Azure Service Bus’ and SAS (Shared Access Signatures) access to you plan to support it in eleven version ? or do you have a third party component doing it ?
+A: CData has a number of Azure components, and there are other 3rd parties with them too.
+Question: can we have Rad11 together with 10.4 ?
+A: Yes
+Question: Is boost available?
+A: yes
+Question: how much does it cost only Delphi11
+A: Same of Delphi 10.4.2, please refer to web site of contact a sales partner or reseller
+Question: Does FMX TGrid now support ElevateDB ?
+A: It should. I’m not aware of any reason it shouldn’t.
+Question: Thank’s Delphi is great!
+A: Thank you.
+Question: Is Jim a metal head…painted nails?
+A: Jim has a daughter that likes to paint his nails, and he found it likes it too.
+Question: Thank you for an interesting presentation. Exciting innovations! 😉
+A: Good to hear. You’re welcome!
+Question: Hello from Colombia
+A: Welcome to the session!
+Question: Can you tell us something about the choice of the name Alexandria?
+A: As explained, City in Africa + great libraries
+Question: Could you please share the link for fixed issues?
+A: https://docwiki.embarcadero.com/RADStudio/Alexandria/en/New_features_and_customer_reported_issues_fixed_in_RAD_Studio_11.0
+Question: Installing Delphi 11, right now !!!!! Awesome job guys, great times to be a Delphi developer !!!!
+A: Yay! Agreed. /Jim
+Question: ‘Cape Town’ next time, please!
+A: I’m pushing for ‘Boise’
+Question: I had to enter my license info. It did not pick it up automatically. But it installed fine once I did it.
+A: 🙂
+Question: Alexandria is also the site of one of the 7 wonders of the ancient world – the Pharos.
+A: Correct
+Question: I’m installing right now!!
+A: Yay!
+Question: Thanks to all of you for your job
+A: 🙂
+Question: Thanks for all what you are doing.
+A: 🙂
+Question: Well done! Good to see it out. Thank you all 🙂
+A: 🙂
+Question: Thank you. Bye for now.
+A: You’re welcome!
+Question: THANK YOU ALL !!! ??
+A: 🙂
+Question: How many people was looking this webinar?
+A: Quite the number. Expecting more once the replay is available.
+Question: Thank you ❤️
+A: Thank you!
+Question: Good session – thanks. Really looking forward to using this stuff.
+A: Good to hear!
+Question: Almost done installing …. can’t wait
+A: nice
+Question: I just dowload it!!! GREAT WORK!!!
+A: Good to hear. Thank you for your support.
+Question: Congratulation for the great work
+A: thanks!
+Question: Good job, thanks
+A: Thank you and you’re welcome.
+Question: Great information on 11. Thanks.
+A: Good to hear. You’re welcome!
+Question: Is Firebird 4 supported in Firedac?
+A: AFAICT it should work fine, we haven’t added support for specirfic new features
+Question: Enterprise license allows the unlimited deployment of the RAD Server Lite?
+A: correct
+Question: SecureBlackbox (3rd party) components support TLS 1.3. They’re a bit pricey, but high quality.
+A: Yes
+Question: Congratulations folks, keep up the such a great job!
+A: Thank you for your support.
+Question: Thanks, great presentation!
+A: You’re welcome!
+Question: Some nice solid improvements – nice work!
+A: Thank you for your support.
+Question: Thank you…
+A: You’re welcome!
+Question: Thank you everyone.
+A: You’re welcome!
+Question: Nice job!
+A: Thank you.
