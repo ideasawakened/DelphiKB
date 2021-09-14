@@ -5,8 +5,7 @@ program iaStressTest.TThreadedQueue;
 uses
   System.SysUtils,
   iaStressTest.TThreadedQueue.PopItem in 'iaStressTest.TThreadedQueue.PopItem.pas',
-  iaTestSupport.Log in '..\..\..\..\..\iaTestSupport.Log.pas',
-  MonitorWaitStackFix in 'MonitorWaitStackFix.pas';
+  iaTestSupport.Log in '..\..\..\..\..\iaTestSupport.Log.pas';
 
 begin
 
