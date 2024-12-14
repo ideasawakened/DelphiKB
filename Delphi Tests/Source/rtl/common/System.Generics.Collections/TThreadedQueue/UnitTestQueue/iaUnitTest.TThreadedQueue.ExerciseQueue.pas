@@ -22,8 +22,8 @@ type
     fQueueProducerFailures:Integer;
     fQueueConsumerFailures:Integer;
   protected
-    procedure CreateConsumers(const pConsumerThreadCount:Integer; const pTaskQueue:TThreadedQueue<TObject>; const pPopTimeout:Cardinal);
-    procedure CreateProducers(const pProducerThreadCount:Integer; const pTaskQueue:TThreadedQueue<TObject>; const pPushTimeout:Cardinal; const pTaskCount:Integer);
+    procedure CreateConsumers(const ConsumerThreadCount:Integer; const TaskQueue:TThreadedQueue<TObject>; const PopTimeout:Cardinal);
+    procedure CreateProducers(const ProducerThreadCount:Integer; const TaskQueue:TThreadedQueue<TObject>; const PushTimeout:Cardinal; const TaskCount:Integer);
     procedure FreeConsumers();
     procedure FreeProducers();
   public
@@ -462,7 +462,7 @@ type
     [TestCase('1000 Depth, Infinite Push/Pop Timeout, 40 Consumer 2 Producer Thread, 100000 Task','1000,$FFFFFFFF,$FFFFFFFF,40,2,100000')]
 
 
-    procedure ExerciseQueue(const pQueueDepth:Integer; const pPushTimeout, pPopTimeout:Cardinal; const pConsumerThreadCount, pProducerThreadCount, pTaskCount:Integer);
+    procedure ExerciseQueue(const QueueDepth:Integer; const PushTimeout, PopTimeout:Cardinal; const ConsumerThreadCount, ProducerThreadCount, TaskCount:Integer);
   end;
 
 implementation
@@ -472,58 +472,58 @@ uses
   System.Threading,
   iaTestSupport.Log;
 
-procedure TiaTestMultiThreadedProducerAndConsumer.ExerciseQueue(const pQueueDepth:Integer; const pPushTimeout, pPopTimeout:Cardinal; const pConsumerThreadCount, pProducerThreadCount, pTaskCount:Integer);
+procedure TiaTestMultiThreadedProducerAndConsumer.ExerciseQueue(const QueueDepth:Integer; const PushTimeout, PopTimeout:Cardinal; const ConsumerThreadCount, ProducerThreadCount, TaskCount:Integer);
 var
-  vQueue:TThreadedQueue<TObject>;
-  vProducing:Boolean;
-  vProducer:TExampleLinkedProducerThread;
-  vTasksPerThread:Integer;
+  Queue:TThreadedQueue<TObject>;
+  IsProducing:Boolean;
+  ProducerThread:TExampleLinkedProducerThread;
+  TasksPerThread:Integer;
 begin
-  LogIt(Format('Test started: Queue Depth: %d  Push Timeout: %d  Pop Timeout: %d  ConsumerThreads: %d  ProducerThreads %d  Tasks: %d',[pQueueDepth, pPushTimeout, pPopTimeout, pConsumerThreadCount, pProducerThreadCount, pTaskCount]));
-  if pQueueDepth = 0 then
+  LogIt(Format('Test started: Queue Depth: %d  Push Timeout: %d  Pop Timeout: %d  ConsumerThreads: %d  ProducerThreads %d  Tasks: %d',[QueueDepth, PushTimeout, PopTimeout, ConsumerThreadCount, ProducerThreadCount, TaskCount]));
+  if QueueDepth = 0 then
   begin
     Assert.Fail('Queue Depth cannot be zero');
   end;
-  if pProducerThreadCount = 0 then
+  if ProducerThreadCount = 0 then
   begin
     Assert.Fail('Producer Thread Count cannot be zero');
   end;
 
-  vQueue := TThreadedQueue<TObject>.Create(pQueueDepth, pPushTimeout, pPopTimeout);
+  Queue := TThreadedQueue<TObject>.Create(QueueDepth, PushTimeout, PopTimeout);
   try
-    vTasksPerThread := pTaskCount div pProducerThreadCount;
-    if vTasksPerThread = 0 then
+    TasksPerThread := TaskCount div ProducerThreadCount;
+    if TasksPerThread = 0 then
     begin
-      vTasksPerThread := 1;
+      TasksPerThread := 1;
     end;
 
-    CreateConsumers(pConsumerThreadCount, vQueue, pPopTimeout);
-    CreateProducers(pProducerThreadCount, vQueue, pPushTimeout, vTasksPerThread);
+    CreateConsumers(ConsumerThreadCount, Queue, PopTimeout);
+    CreateProducers(ProducerThreadCount, Queue, PushTimeout, TasksPerThread);
 
-    LogIt(Format('Producing %d tasks', [vTasksPerThread*pProducerThreadCount]));
-    vProducing := True;
-    while vProducing do
+    LogIt(Format('Producing %d tasks', [TasksPerThread*ProducerThreadCount]));
+    IsProducing := True;
+    while IsProducing do
     begin
-      vProducing := False;
+      IsProducing := False;
 
-      for vProducer in fProducers do
+      for ProducerThread in fProducers do
       begin
-        if vProducer.ThreadState = TProducerState.ProducerWorking then
+        if ProducerThread.ThreadState = TProducerState.ProducerWorking then
         begin
-          vProducing := True;
+          IsProducing := True;
         end;
       end;
       TThread.CurrentThread.Yield;
     end;
 
     LogIt('Production completed, waiting for consumers to finish');
-    while vQueue.QueueSize <> 0 do
+    while Queue.QueueSize <> 0 do
     begin
       TThread.CurrentThread.Yield;
     end;
 
     LogIt('Shutting down queue');
-    vQueue.DoShutDown();
+    Queue.DoShutDown();
     FreeProducers();
     FreeConsumers();
 
@@ -532,72 +532,72 @@ begin
     Assert.AreEqual(fQueueConsumerFailures, 0, 'Queue consumer errors not zero');
   finally
     LogIt('Freeing queue');
-    vQueue.Free();
+    Queue.Free();
   end;
   LogIt('Test completed');
 end;
 
 
-procedure TiaTestMultiThreadedProducerAndConsumer.CreateConsumers(const pConsumerThreadCount:Integer; const pTaskQueue:TThreadedQueue<TObject>; const pPopTimeout:Cardinal);
+procedure TiaTestMultiThreadedProducerAndConsumer.CreateConsumers(const ConsumerThreadCount:Integer; const TaskQueue:TThreadedQueue<TObject>; const PopTimeout:Cardinal);
 var
   i:Integer;
 begin
-  LogIt(Format('Creating %d consumer threads', [pConsumerThreadCount]));
+  LogIt(Format('Creating %d consumer threads', [ConsumerThreadCount]));
   fTasksConsumed := 0;
   fTasksUnderflow := 0;
   fQueueConsumerFailures := 0;
 
-  SetLength(fConsumers, pConsumerThreadCount);
-  for i := 0 to pConsumerThreadCount-1 do
+  SetLength(fConsumers, ConsumerThreadCount);
+  for i := 0 to ConsumerThreadCount-1 do
   begin
-    fConsumers[i] := TExampleLinkedConsumerThread.Create(pTaskQueue, pPopTimeout);
+    fConsumers[i] := TExampleLinkedConsumerThread.Create(TaskQueue, PopTimeout);
   end;
 end;
 
 
-procedure TiaTestMultiThreadedProducerAndConsumer.CreateProducers(const pProducerThreadCount:Integer; const pTaskQueue:TThreadedQueue<TObject>; const pPushTimeout:Cardinal; const pTaskCount:Integer);
+procedure TiaTestMultiThreadedProducerAndConsumer.CreateProducers(const ProducerThreadCount:Integer; const TaskQueue:TThreadedQueue<TObject>; const PushTimeout:Cardinal; const TaskCount:Integer);
 var
   i:Integer;
 begin
-  LogIt(Format('Creating %d producer threads', [pProducerThreadCount]));
+  LogIt(Format('Creating %d producer threads', [ProducerThreadCount]));
   fTasksProduced := 0;
   fTasksOverflow := 0;
   fQueueProducerFailures := 0;
 
-  SetLength(fProducers, pProducerThreadCount);
-  for i := 0 to pProducerThreadCount-1 do
+  SetLength(fProducers, ProducerThreadCount);
+  for i := 0 to ProducerThreadCount-1 do
   begin
-    fProducers[i] := TExampleLinkedProducerThread.Create(pTaskQueue, pPushTimeout, pTaskCount);
+    fProducers[i] := TExampleLinkedProducerThread.Create(TaskQueue, PushTimeout, TaskCount);
   end;
 end;
 
 
 procedure TiaTestMultiThreadedProducerAndConsumer.FreeConsumers();
 var
-  vThread:TExampleLinkedProducerThread;
+  ProducerThread:TExampleLinkedProducerThread;
 begin
   LogIt('Freeing producer threads');
-  for vThread in fProducers do
+  for ProducerThread in fProducers do
   begin
-    Inc(fTasksProduced, vThread.TasksProduced);
-    Inc(fTasksOverflow, vThread.TasksOverflow);
-    Inc(fQueueProducerFailures, vThread.QueueFailures);
-    vThread.Free();
+    Inc(fTasksProduced, ProducerThread.TasksProduced);
+    Inc(fTasksOverflow, ProducerThread.TasksOverflow);
+    Inc(fQueueProducerFailures, ProducerThread.QueueFailures);
+    ProducerThread.Free();
   end;
 end;
 
 
 procedure TiaTestMultiThreadedProducerAndConsumer.FreeProducers();
 var
-  vThread:TExampleLinkedConsumerThread;
+  ConsumerThread:TExampleLinkedConsumerThread;
 begin
   LogIt('Freeing consumer threads');
-  for vThread in fConsumers do
+  for ConsumerThread in fConsumers do
   begin
-    Inc(fTasksConsumed, vThread.TasksConsumed);
-    Inc(fTasksUnderflow, vThread.TasksUnderflow);
-    Inc(fQueueConsumerFailures, vThread.QueueFailures);
-    vThread.Free();
+    Inc(fTasksConsumed, ConsumerThread.TasksConsumed);
+    Inc(fTasksUnderflow, ConsumerThread.TasksUnderflow);
+    Inc(fQueueConsumerFailures, ConsumerThread.QueueFailures);
+    ConsumerThread.Free();
   end;
 end;
 

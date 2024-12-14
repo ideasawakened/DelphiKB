@@ -19,7 +19,7 @@ type
     fTasksUnderflow:Integer;
     fQueueFailures:Integer;
   public
-    constructor Create(const pTaskQueue:TThreadedQueue<TObject>; const pQueueTimeout:Cardinal);
+    constructor Create(const TaskQueue:TThreadedQueue<TObject>; const QueueTimeout:Cardinal);
 
     procedure Execute(); override;
 
@@ -39,34 +39,34 @@ uses
   iaTestSupport.Log;
 
 
-constructor TExampleLinkedConsumerThread.Create(const pTaskQueue:TThreadedQueue<TObject>; const pQueueTimeout:Cardinal);
+constructor TExampleLinkedConsumerThread.Create(const TaskQueue:TThreadedQueue<TObject>; const QueueTimeout:Cardinal);
 const
   CreateSuspendedParam = False;
 begin
   self.FreeOnTerminate := False;
-  fTaskQueue := pTaskQueue;
-  fQueueTimeout := pQueueTimeout;
+  fTaskQueue := TaskQueue;
+  fQueueTimeout := QueueTimeout;
   inherited Create(CreateSuspendedParam);
 end;
 
 
 procedure TExampleLinkedConsumerThread.Execute();
 var
-  vPopResult:TWaitResult;
-  vDataItem:TExampleTaskData;
+  PopResult:TWaitResult;
+  DataItem:TExampleTaskData;
 begin
   NameThreadForDebugging('ExampleLinkedConsumer_' + FormatDateTime('hhnnss.zzzz', Now));
   try
 
     while (not self.Terminated) and (not fTaskQueue.ShutDown) do
     begin
-      vPopResult := fTaskQueue.PopItem(TObject(vDataItem));
-      if (vPopResult = wrSignaled) then
+      PopResult := fTaskQueue.PopItem(TObject(DataItem));
+      if (PopResult = wrSignaled) then
       begin
-        if Assigned(vDataItem) then
+        if Assigned(DataItem) then
         begin
           Inc(fTasksConsumed);
-          vDataItem.Free();
+          DataItem.Free();
         end
         else if not fTaskQueue.ShutDown then
         begin
@@ -75,7 +75,7 @@ begin
         end;
         //else: queue signal to shut down
       end
-      else if (vPopResult = wrTimeout) then
+      else if (PopResult = wrTimeout) then
       begin
         if fQueueTimeout = INFINITE then
         begin
@@ -91,7 +91,7 @@ begin
       end
       else
       begin
-        LogIt('PopItem failed: ' + TRttiEnumerationType.GetName(vPopResult));
+        LogIt('PopItem failed: ' + TRttiEnumerationType.GetName(PopResult));
         Inc(fQueueFailures);
       end;
     end;

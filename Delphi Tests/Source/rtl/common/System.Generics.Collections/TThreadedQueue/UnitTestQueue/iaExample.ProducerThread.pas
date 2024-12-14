@@ -20,7 +20,7 @@ type
     fTasksOverflow:Integer;
     fQueueFailures:Integer;
   public
-    constructor Create(const pTaskQueue:TThreadedQueue<TObject>; const pQueueTimeout:Cardinal; const pNumberOfTasksToProduce:Integer);
+    constructor Create(const TaskQueue:TThreadedQueue<TObject>; const QueueTimeout:Cardinal; const NumberOfTasksToProduce:Integer);
 
     procedure Execute(); override;
 
@@ -40,39 +40,37 @@ uses
   iaTestSupport.Log;
 
 
-constructor TExampleLinkedProducerThread.Create(const pTaskQueue:TThreadedQueue<TObject>; const pQueueTimeout:Cardinal; const pNumberOfTasksToProduce:Integer);
-const
-  CreateSuspendedParam = False;
+constructor TExampleLinkedProducerThread.Create(const TaskQueue:TThreadedQueue<TObject>; const QueueTimeout:Cardinal; const NumberOfTasksToProduce:Integer);
 begin
   self.FreeOnTerminate := False;
-  fTaskQueue := pTaskQueue;
-  fQueueTimeout := pQueueTimeout;
-  fNumberOfTasksToProduce := pNumberOfTasksToProduce;
+  fTaskQueue := TaskQueue;
+  fQueueTimeout := QueueTimeout;
+  fNumberOfTasksToProduce := NumberOfTasksToProduce;
   fThreadState := TProducerState.ProducerWorking;
-  inherited Create(CreateSuspendedParam);
+  inherited Create({CreateSuspended=}False);
 end;
 
 
 procedure TExampleLinkedProducerThread.Execute();
 var
   i:Integer;
-  vPushResult:TWaitResult;
-  vTaskItem:TExampleTaskData;
+  PushResult:TWaitResult;
+  TaskItem:TExampleTaskData;
 begin
   NameThreadForDebugging('ExampleLinkedProducer_' + FormatDateTime('hhnnss.zzzz', Now));
   try
 
     for i := 1 to fNumberOfTasksToProduce do
     begin
-      vTaskItem := TExampleTaskData.Create(i, IntToStr(i));
-      vPushResult := fTaskQueue.PushItem(vTaskItem);
-      if vPushResult = TWaitResult.wrSignaled then
+      TaskItem := TExampleTaskData.Create(i, IntToStr(i));
+      PushResult := fTaskQueue.PushItem(TaskItem);
+      if PushResult = TWaitResult.wrSignaled then
       begin
         Inc(fTasksProduced);
       end
       else
       begin
-        if (vPushResult = TWaitResult.wrTimeout) then
+        if (PushResult = TWaitResult.wrTimeout) then
         begin
           if fQueueTimeout = INFINITE then
           begin
@@ -89,10 +87,10 @@ begin
         end
         else
         begin
-          LogIt('PushItem failed: ' + TRttiEnumerationType.GetName(vPushResult));
+          LogIt('PushItem failed: ' + TRttiEnumerationType.GetName(PushResult));
           Inc(fQueueFailures);
         end;
-        vTaskItem.Free();
+        TaskItem.Free();
       end;
     end;
 

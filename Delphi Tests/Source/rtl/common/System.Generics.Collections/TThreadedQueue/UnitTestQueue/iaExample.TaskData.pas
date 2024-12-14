@@ -9,7 +9,7 @@ type
     fId:Integer;
     fSomeAttribute:string;
   public
-    constructor Create(const pId:Integer; const pSomeAttribute:string);
+    constructor Create(const InitialId:Integer; const InitialAttribute:string);
 
     property Id:Integer read fId write fId;
     property SomeAttribute:string read fSomeAttribute write fSomeAttribute;
@@ -19,10 +19,10 @@ type
 implementation
 
 
-constructor TExampleTaskData.Create(const pId:Integer; const pSomeAttribute:string);
+constructor TExampleTaskData.Create(const InitialId:Integer; const InitialAttribute:string);
 begin
-  fId := pId;
-  fSomeAttribute := pSomeAttribute;
+  fId := InitialId;
+  fSomeAttribute := InitialAttribute;
 end;
 
 
