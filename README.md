@@ -12,6 +12,7 @@ https://github.com/ideasawakened/DelphiKB/wiki/Delphi-Master-Release-List
 
 
 # Awesome Pascal [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+(forked from the original source: https://github.com/Fr0sT-Brutal/awesome-pascal)
 
 A curated list of awesome Delphi, FreePascal and other *Pascal frameworks, libraries, resources, and shiny things. Inspired by awesome-xxx stuff.
 
